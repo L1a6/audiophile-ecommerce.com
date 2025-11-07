@@ -1,0 +1,1043 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+  background-color: #FAFAFA;
+}
+
+.landing-page {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.hero-section {
+  position: relative;
+  width: 1440px;
+  height: 729px;
+  margin: 0 auto;
+  background-color: #101010;
+  overflow: hidden;
+}
+
+.hero-background {
+  position: absolute;
+  width: 1440px;
+  height: 729px;
+  background-color: #121212;
+  margin: 0;
+  z-index: 1;
+}
+
+.hero-image {
+  position: absolute;
+  width: 708.8px;
+  height: 729px;
+  left: 609.6px;
+  top: 0;
+  z-index: 2;
+  object-fit: cover;
+}
+
+.hero-content {
+  position: absolute;
+  width: 398px;
+  height: 346px;
+  top: 225px;
+  left: 165px;
+  z-index: 3;
+}
+
+.hero-label {
+  width: 199px;
+  height: 19px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  opacity: 0.4964;
+  margin-bottom: 24px;
+  white-space: nowrap;
+}
+
+.hero-title {
+  width: 396px;
+  height: 116px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 58px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin-bottom: 24px;
+}
+
+.hero-description {
+  width: 349px;
+  height: 75px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 25px;
+  letter-spacing: 0px;
+  color: #FFFFFF;
+  opacity: 0.75;
+  margin-bottom: 40px;
+}
+
+.cta-button {
+  width: 160px;
+  height: 48px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 100%;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cta-button.primary {
+  background-color: #D87D4A;
+  color: #FFFFFF;
+  border: none;
+}
+
+.cta-button.primary:hover {
+  background-color: #FBAF85;
+}
+
+.cta-button.black {
+  background-color: #000000;
+  color: #FFFFFF;
+  border: none;
+}
+
+.cta-button.black:hover {
+  background-color: #4C4C4C;
+}
+
+.cta-button.outline {
+  background-color: transparent;
+  color: #000000;
+  border: 2px solid #000000;
+}
+
+.cta-button.outline:hover {
+  background-color: #000000;
+  color: #FFFFFF;
+}
+
+/* ============================================
+   CATEGORY SECTION - DESKTOP
+   ============================================ */
+.category-section {
+  width: 100%;
+  padding: 168px 0;
+  background-color: #FAFAFA;
+}
+
+.category-container {
+  width: 1110px;
+  height: 284px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  color: transparent
+}
+
+.category-card {
+  position: relative;
+  width: 350px;
+  height: 284px;
+  border-radius: 8px;
+}
+
+
+.category-card.speakers-card {
+  height: 276.5px;
+  top: 7.5px;
+}
+
+.category-card.earphones-card {
+  height: 263px;
+  top: 21px;
+}
+
+.category-mask {
+  position: absolute;
+  width: 350px;
+  height: 204px;
+  top: 80px;
+  left: 0;
+  border-radius: 8px;
+  z-index: 1;
+  object-fit: cover;
+}
+
+.speakers-card .category-mask {
+  top: 72.5px;
+}
+
+.earphones-card .category-mask {
+  top: 59px;
+}
+
+.category-shadow {
+  position: absolute;
+  width: 122px;
+  height: 50px;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.1) 30%, transparent 70%);
+  left: 113.5px;
+  z-index: 4;
+  border-radius: 50%;
+  filter: blur(10px);
+}
+
+.category-card .category-shadow {
+  top: 145px;
+}
+
+.speakers-card .category-shadow {
+  top: 137.5px;
+}
+
+.earphones-card .category-shadow {
+  top: 124px;
+}
+
+.category-image {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  object-fit: contain;
+}
+
+.headphones-img {
+  width: 122.95px;
+  height: 160px;
+  bottom: 124px;
+}
+
+.speakers-img {
+  width: 121.49px;
+  height: 146px;
+  bottom: 130.5px;
+}
+
+.earphones-img {
+  width: 125px;
+  height: 155px;
+  bottom: 108px;
+}
+
+.category-title {
+  position: absolute;
+  height: 25px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: 1.29px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #000000;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+}
+
+.category-card .category-title {
+  top: 196px;
+  width: 133px;
+}
+
+.speakers-card .category-title {
+  top: 188.5px;
+  width: 101px;
+}
+
+.earphones-card .category-title {
+  top: 175px;
+  width: 118px;
+}
+
+.category-link {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 13.32px;
+  text-decoration: none;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+}
+
+.category-card .category-link {
+  top: 237px;
+}
+
+.speakers-card .category-link {
+  top: 229.5px;
+}
+
+.earphones-card .category-link {
+  top: 216px;
+}
+
+.shop-text {
+  width: 39px;
+  height: 18px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 100%;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #000000;
+  opacity: 0.5;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.category-link:hover .shop-text {
+  color: #D87D4A;
+  opacity: 1;
+}
+
+.arrow-icon {
+  width: 5px;
+  height: 10px;
+  object-fit: contain;
+}
+
+/* ============================================
+   ZX9 SPEAKER SECTION - DESKTOP
+   ============================================ */
+.zx9-section {
+  width: 100%;
+  background-color: #FAFAFA;
+}
+
+.zx9-container {
+  position: relative;
+  width: 1110px;
+  height: 560px;
+  margin: 0 auto;
+  background-color: #D87D4A;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.zx9-pattern {
+  position: absolute;
+  width: 944px;
+  height: 944px;
+  right: 315px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.2021;
+  z-index: 1;
+}
+
+.zx9-speaker-image {
+  position: absolute;
+  width: 410.23px;
+  height: 493px;
+  left: 117.49px;
+  top: 96px;
+  z-index: 2;
+  object-fit: contain;
+}
+
+.zx9-content {
+  position: absolute;
+  width: 349px;
+  height: 303px;
+  right: 95px;
+  top: 133px;
+  z-index: 3;
+}
+
+.zx9-title {
+  width: 261px;
+  height: 116px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 58px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin-bottom: 24px;
+}
+
+.zx9-description {
+  width: 349px;
+  height: 75px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 25px;
+  letter-spacing: 0px;
+  color: #FFFFFF;
+  opacity: 0.75;
+  margin-bottom: 40px;
+}
+
+/* ============================================
+   ZX7 SPEAKER SECTION - DESKTOP
+   ============================================ */
+.zx7-section {
+  width: 100%;
+  margin: 48px auto 0;
+  background-color: #FAFAFA;
+}
+
+.zx7-container {
+  position: relative;
+  width: 1110px;
+  height: 320px;
+  margin: 0 auto;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.zx7-image {
+  position: absolute;
+  width: 1110px;
+  height: 320px;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.zx7-content {
+  position: absolute;
+  width: 204px;
+  height: 118px;
+  top: 101px;
+  left: 95px;
+  z-index: 2;
+}
+
+.zx7-title {
+  width: 202px;
+  height: 38px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 100%;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #000000;
+  margin-bottom: 32px;
+}
+
+/* ============================================
+   YX1 EARPHONES SECTION - DESKTOP
+   ============================================ */
+.yx1-section {
+  width: 100%;
+  margin: 48px auto 0;
+  background-color: #FAFAFA;
+}
+
+.yx1-container {
+  width: 1110px;
+  margin: 0 auto;
+  display: flex;
+  gap: 30px;
+}
+
+.yx1-image-left {
+  width: 540px;
+  height: 320px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.yx1-right {
+  position: relative;
+  width: 540px;
+  height: 320px;
+}
+
+.yx1-mask {
+  position: absolute;
+  width: 540px;
+  height: 320px;
+  border-radius: 8px;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  object-fit: cover;
+}
+
+.yx1-content {
+  position: absolute;
+  width: 247px;
+  height: 118px;
+  top: 101px;
+  left: 95px;
+  z-index: 2;
+}
+
+.yx1-title {
+  width: 245px;
+  height: 38px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 100%;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #000000;
+  margin-bottom: 32px;
+}
+
+/* ============================================
+   ABOUT SECTION - DESKTOP
+   ============================================ */
+.about-section {
+  width: 100%;
+  margin: 200px auto 0;
+  padding-bottom: 200px;
+  background-color: #FAFAFA;
+}
+
+.about-container {
+  width: 1110px;
+  height: 588px;
+  margin: 0 auto;
+  display: flex;
+  gap: 125px;
+}
+
+.about-content {
+  width: 445px;
+  height: 295px;
+  padding-top: 147px;
+}
+
+.about-title {
+  width: 445px;
+  height: 88px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 44px;
+  letter-spacing: 1.43px;
+  text-transform: uppercase;
+  color: #000000;
+  margin-bottom: 32px;
+}
+
+.about-title .highlight {
+  color: #D87D4A;
+}
+
+.about-description {
+  width: 445px;
+  height: 175px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 25px;
+  letter-spacing: 0px;
+  color: #000000;
+  opacity: 0.5;
+}
+
+.about-image {
+  width: 540px;
+  height: 588px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* ============================================
+   TABLET STYLES - 768px
+   ============================================ */
+@media (max-width: 768px) {
+  .hero-section {
+    width: 768px;
+    height: 729px;
+  }
+
+  .hero-background {
+    width: 768px;
+  }
+
+  .hero-image {
+    width: 768px;
+    height: 729px;
+    left: 0;
+    top: 0;
+    object-position: center;
+    object-fit: cover;
+  }
+
+  .hero-content {
+    width: 379px;
+    height: 346px;
+    top: 216px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+  }
+
+  .hero-label {
+    margin: 0 auto 24px;
+  }
+
+  .hero-title {
+    margin: 0 auto 24px;
+  }
+
+  .hero-description {
+    margin: 0 auto 40px;
+  }
+
+  .cta-button.primary {
+    margin: 0 auto;
+    display: block;
+  }
+
+  .category-section {
+    padding: 96px 0;
+  }
+
+  .category-container {
+    width: 689px;
+    height: auto;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .category-card,
+  .category-card.speakers-card,
+  .category-card.earphones-card {
+    width: 689px;
+    height: 217px;
+    margin: 0 auto 68px;
+    top: 0;
+  }
+
+  .category-card:last-child {
+    margin-bottom: 0;
+  }
+
+  .category-mask,
+  .speakers-card .category-mask,
+  .earphones-card .category-mask {
+    width: 689px;
+    top: 52px;
+  }
+
+  .category-shadow,
+  .speakers-card .category-shadow,
+  .earphones-card .category-shadow {
+    top: 94px;
+  }
+
+  .category-image {
+    width: auto;
+    height: 104px;
+  }
+
+  .headphones-img,
+  .speakers-img,
+  .earphones-img {
+    bottom: 80px;
+    height: 104px;
+    width: auto;
+  }
+
+  .category-title,
+  .speakers-card .category-title,
+  .earphones-card .category-title {
+    top: 134px;
+  }
+
+  .category-link,
+  .speakers-card .category-link,
+  .earphones-card .category-link {
+    top: 175px;
+  }
+
+  .zx9-container {
+    width: 689px;
+    height: 720px;
+  }
+
+  .zx9-pattern {
+    width: 944px;
+    height: 944px;
+    left: -88px;
+    top: 50%;
+  }
+
+  .zx9-speaker-image {
+    width: 197.21px;
+    height: 237px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 52px;
+  }
+
+  .zx9-content {
+    width: 349px;
+    height: 303px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 353px;
+    text-align: center;
+  }
+
+  .zx9-title {
+    margin: 0 auto 24px;
+  }
+
+  .zx9-description {
+    margin: 0 auto 40px;
+  }
+
+  .cta-button.black {
+    margin: 0 auto;
+    display: block;
+  }
+
+  .zx7-section {
+    margin-top: 32px;
+  }
+
+  .zx7-container {
+    width: 689px;
+  }
+
+  .zx7-image {
+    width: 689px;
+  }
+
+  .zx7-content {
+    left: 62px;
+  }
+
+  .yx1-section {
+    margin-top: 32px;
+  }
+
+  .yx1-container {
+    width: 689px;
+    gap: 11px;
+  }
+
+  .yx1-image-left {
+    width: 339px;
+  }
+
+  .yx1-right {
+    width: 339px;
+  }
+
+  .yx1-mask {
+    width: 339px;
+  }
+
+  .yx1-content {
+    left: 41px;
+  }
+
+  .about-section {
+    margin-top: 96px;
+    padding-bottom: 96px;
+  }
+
+  .about-container {
+    width: 689px;
+    height: 633px;
+    flex-direction: column-reverse;
+    gap: 63px;
+  }
+
+  .about-content {
+    width: 689px;
+    height: auto;
+    padding-top: 0;
+    text-align: center;
+  }
+
+  .about-title {
+    width: 689px;
+    margin: 0 auto 32px;
+  }
+
+  .about-description {
+    width: 689px;
+    margin: 0 auto;
+  }
+
+  .about-image {
+    width: 689px;
+    height: 300px;
+  }
+}
+
+/* ============================================
+   MOBILE STYLES - 375px
+   ============================================ */
+@media (max-width: 375px) {
+  .hero-section {
+    width: 375px;
+    height: 600px;
+  }
+
+  .hero-background {
+    width: 375px;
+    height: 600px;
+  }
+
+  .hero-image {
+    width: 375px;
+    height: 600px;
+    left: 0;
+    object-fit: cover;
+  }
+
+  .hero-content {
+    width: 328px;
+    height: 290px;
+    top: 198px;
+    left: 23px;
+    transform: none;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 36px;
+    line-height: 40px;
+    letter-spacing: 1.29px;
+    height: 100px;
+    width: 328px;
+  }
+
+  .hero-description {
+    width: 328px;
+  }
+
+  .category-section {
+    padding: 120px 0;
+  }
+
+  .category-container {
+    width: 327px;
+    flex-direction: column;
+  }
+
+  .category-card,
+  .category-card.speakers-card,
+  .category-card.earphones-card {
+    width: 327px;
+    height: 217px;
+    margin-bottom: 68px;
+  }
+
+  .category-mask,
+  .speakers-card .category-mask,
+  .earphones-card .category-mask {
+    width: 327px;
+    top: 52px;
+  }
+
+  .category-shadow {
+    width: 94.89px;
+    height: 14px;
+    left: 116px;
+    filter: blur(8px);
+  }
+
+  .category-shadow,
+  .speakers-card .category-shadow,
+  .earphones-card .category-shadow {
+    top: 94px;
+  }
+
+  .category-image {
+    width: auto;
+    height: 104px;
+  }
+
+  .headphones-img,
+  .speakers-img,
+  .earphones-img {
+    bottom: 80px;
+    height: 104px;
+    width: auto;
+  }
+
+  .category-title,
+  .speakers-card .category-title,
+  .earphones-card .category-title {
+    top: 134px;
+  }
+
+  .category-link,
+  .speakers-card .category-link,
+  .earphones-card .category-link {
+    top: 175px;
+  }
+
+  .zx9-container {
+    width: 327px;
+    height: 600px;
+  }
+
+  .zx9-pattern {
+    width: 558px;
+    height: 558px;
+    top: -121px;
+    left: -116px;
+    transform: none;
+  }
+
+  .zx9-speaker-image {
+    width: 172.25px;
+    height: 207px;
+    top: 55px;
+    left: 77.48px;
+    transform: none;
+  }
+
+  .zx9-content {
+    width: 280px;
+    top: 294px;
+    left: 23px;
+    transform: none;
+  }
+
+  .zx9-title {
+    width: 280px;
+    height: 80px;
+    font-size: 36px;
+    line-height: 40px;
+    letter-spacing: 1.29px;
+  }
+
+  .zx9-description {
+    width: 280px;
+  }
+
+  .zx7-section {
+    margin-top: 24px;
+  }
+
+  .zx7-container {
+    width: 327px;
+  }
+
+  .zx7-image {
+    width: 327px;
+  }
+
+  .zx7-content {
+    left: 24px;
+  }
+
+  .yx1-section {
+    margin-top: 24px;
+  }
+
+  .yx1-container {
+    width: 327px;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .yx1-image-left {
+    width: 327px;
+  }
+
+  .yx1-right {
+    width: 327px;
+  }
+
+  .yx1-mask {
+    width: 327px;
+  }
+
+  .yx1-content {
+    left: 24px;
+  }
+
+  .about-section {
+    margin-top: 120px;
+    padding-bottom: 120px;
+  }
+
+  .about-container {
+    width: 327px;
+    height: 698px;
+    gap: 40px;
+  }
+
+  .about-content {
+    width: 327px;
+    text-align: center;
+  }
+
+  .about-title {
+    width: 327px;
+    font-size: 28px;
+    line-height: 38px;
+    letter-spacing: 1px;
+    height: auto;
+  }
+
+  .about-description {
+    width: 327px;
+    height: auto;
+  }
+
+  .about-image {
+    width: 327px;
+    height: 300px;
+  }
+}
+
+.zx9-section {
+  margin-top: 168px; 
+}
+
+@media (max-width: 768px) {
+  .category-section {
+    margin-top: 96px;
+  }
+  
+  .zx9-section {
+    margin-top: 96px;
+  }
+}
+
+@media (max-width: 375px) {
+  .category-section {
+    margin-top: 120px;
+  }
+  
+  .zx9-section {
+    margin-top: 120px;
+  }
+}

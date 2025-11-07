@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap');
+
+/* ============================================
+   FOOTER - DESKTOP (1440px)
+   ============================================ */
+.footer {
+  position: relative;
+  width: 1440px;
+  height: 365px;
+  margin: 0 auto;
+  background-color: #191919;
+}
+
+/* Orange accent line at top */
+.footer-line {
+  position: absolute;
+  width: 101px;
+  height: 4px;
+  top: 0;
+  left: 165px;
+  background-color: #D87D4A;
+}
+
+/* Main content wrapper */
+.footer-content {
+  position: absolute;
+  width: 1110px;
+  left: 165px;
+  top: 75px;
+}
+
+/* ============================================
+   LOGO AND NAVIGATION ROW
+   ============================================ */
+.footer-nav-row {
+  position: relative;
+  width: 1110px;
+  height: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 36px;
+}
+
+.footer-logo {
+  width: 143px;
+  height: 25px;
+  object-fit: contain;
+}
+
+.footer-nav {
+  display: flex;
+  align-items: center;
+}
+
+.footer-nav-link {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 25px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  margin-left: 34px;
+}
+
+.footer-nav-link:first-child {
+  margin-left: 0;
+}
+
+.footer-nav-link:hover {
+  color: #D87D4A;
+}
+
+/* ============================================
+   DESCRIPTION AND SOCIAL ICONS (Desktop)
+   ============================================ */
+.footer-middle {
+  position: relative;
+  width: 1110px;
+  margin-bottom: 56px;
+}
+
+.footer-description {
+  width: 540px;
+  height: 100px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 25px;
+  letter-spacing: 0px;
+  color: #FFFFFF;
+  opacity: 0.5;
+  margin: 0;
+}
+
+/* Social icons positioned absolutely relative to footer container */
+.footer-social-desktop {
+  position: absolute;
+  display: flex;
+  gap: 16px;
+  right: 165px;
+  bottom: 5px;
+}
+
+.footer-social-tablet,
+.footer-social-mobile {
+  display: none;
+}
+
+.social-link {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.social-link:hover {
+  color: #D87D4A;
+}
+
+.social-link svg {
+  width: 100%;
+  height: auto;
+}
+
+/* ============================================
+   COPYRIGHT ROW
+   ============================================ */
+.footer-bottom-row {
+  position: relative;
+  width: 1110px;
+  height: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-copyright {
+  width: 540px;
+  height: 25px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 25px;
+  letter-spacing: 0px;
+  color: #FFFFFF;
+  opacity: 0.5;
+  margin: 0;
+}
+
+/* ============================================
+   TABLET STYLES (768px)
+   ============================================ */
+@media (max-width: 768px) {
+  .footer {
+    width: 768px;
+    height: 400px;
+  }
+
+  .footer-line {
+    left: 39px;
+  }
+
+  .footer-content {
+    width: 689px;
+    left: 39px;
+    top: 60px;
+  }
+
+  /* Logo and Nav stacked vertically */
+  .footer-nav-row {
+    width: 689px;
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    margin-bottom: 32px;
+  }
+
+  .footer-logo {
+    margin-bottom: 32px;
+  }
+
+  .footer-nav {
+    width: 429px;
+  }
+
+  .footer-nav-link:first-child {
+    margin-left: 0;
+  }
+
+  /* Description section */
+  .footer-middle {
+    width: 689px;
+    margin-bottom: 80px;
+  }
+
+  .footer-description {
+    width: 689px;
+    height: 75px;
+    font-weight: 400;
+  }
+
+  /* Hide desktop social icons */
+  .footer-social-desktop {
+    display: none;
+  }
+
+  /* Show tablet social icons - positioned on same row as copyright */
+  .footer-social-tablet {
+    position: relative;
+    display: flex;
+    gap: 16px;
+    width: 104px;
+    height: 24px;
+  }
+
+  .footer-bottom-row {
+    width: 689px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-copyright {
+    width: 258px;
+  }
+}
+
+/* ============================================
+   MOBILE STYLES (375px)
+   ============================================ */
+@media (max-width: 375px) {
+  .footer {
+    width: 375px;
+    height: 654px;
+  }
+
+  .footer-line {
+    width: 101px;
+    left: 137px;
+  }
+
+  .footer-content {
+    width: 375px;
+    left: 0;
+    top: 52px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Logo and Nav centered and stacked */
+  .footer-nav-row {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 48px;
+  }
+
+  .footer-logo {
+    width: 143px;
+    margin-bottom: 48px;
+  }
+
+  .footer-nav {
+    width: 108px;
+    height: 148px;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .footer-nav-link {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  /* Description centered */
+  .footer-middle {
+    width: 327px;
+    margin-bottom: 48px;
+  }
+
+  .footer-description {
+    width: 327px;
+    height: 150px;
+    font-weight: 400;
+    text-align: center;
+  }
+
+  /* Hide desktop and tablet social icons */
+  .footer-social-desktop,
+  .footer-social-tablet {
+    display: none;
+  }
+
+  /* Copyright and Social stacked vertically */
+  .footer-bottom-row {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    margin-bottom: 48px;
+  }
+
+  .footer-copyright {
+    width: 258px;
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  /* Show mobile social icons (below copyright) */
+  .footer-social-mobile {
+    display: flex;
+    gap: 16px;
+    width: 104px;
+    height: 24px;
+    bottom: 5px;
+  }
+}

@@ -1,65 +1,105 @@
-import Image from "next/image";
+import React from 'react';
+import Link from 'next/link';
+import BestGear from '@/components/BestGear';
+import '@/styles/landingpage.css';
+import '@/components/CategorySection';
+import '@/components/Navbar';
+import CategorySection from '@/components/CategorySection';
 
-export default function Home() {
+const LandingPage = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <div className="landing-page">
+      {/* Hero Section */}
+      <section className="hero-section">
+        <div className="hero-background"></div>
+        <img 
+          src="/images/Bitmap (2).png" 
+          alt="XX99 Mark II Headphones" 
+          className="hero-image"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+        <div className="hero-content">
+          <p className="hero-label">NEW PRODUCT</p>
+          <h1 className="hero-title">XX99 MARK II HEADPHONES</h1>
+          <p className="hero-description">
+            Experience natural, lifelike audio and exceptional build quality made
+             for the passionate music enthusiast.
           </p>
+          <Link href="/headphones/xx99-mark-two">
+          <button className="cta-button primary">SEE PRODUCT</button>
+          </Link>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+<section className="category-section">
+      <CategorySection />
+      </section>
+
+      
+
+      {/* ZX9 Speaker Section */}
+      <section className="zx9-section">
+        <div className="zx9-container">
+          <img src="/images/Group 4.png" alt="" className="zx9-pattern" />
+          <img 
+            src="/images/image-removebg-preview(38).png" 
+            alt="ZX9 Speaker" 
+            className="zx9-speaker-image"
+          />
+          <div className="zx9-content">
+            <h2 className="zx9-title">ZX9 SPEAKER</h2>
+            <p className="zx9-description">
+              Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.
+            </p>
+            <Link href="/speakers/zx9">
+            <button className="cta-button black">SEE PRODUCT</button></Link>
+          </div>
         </div>
-      </main>
+      </section>
+
+      {/* ZX7 Speaker Section */}
+      <section className="zx7-section">
+        <div className="zx7-container">
+          <img src="/images/Bitmap2.png" alt="ZX7 Speaker" className="zx7-image" />
+          <div className="zx7-content">
+            <h2 className="zx7-title">ZX7 SPEAKER</h2>
+          <Link href="/speakers/zx7"><button className="cta-button outline">SEE PRODUCT</button></Link>
+          </div>
+        </div>
+      </section>
+
+      {/* YX1 Earphones Section */}
+      <section className="yx1-section">
+        <div className="yx1-container">
+          <img src="/images/Group 12.png" alt="YX1 Earphones" className="yx1-image-left" />
+          <div className="yx1-right">
+            <img src="/images/Mask (5).png" alt="" className="yx1-mask" />
+            <div className="yx1-content">
+              <h2 className="yx1-title">YX1 EARPHONES</h2>
+              <Link href="/earphones/yx1"><button className="cta-button outline">SEE PRODUCT</button></Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section className="about-section">
+        <div className="about-container">
+          <div className="about-content">
+            <h2 className="about-title">
+              BRINGING YOU THE <span className="highlight">BEST</span> AUDIO GEAR
+            </h2>
+            <p className="about-description">
+              Located at the heart of New York City, Audiophile is the premier store for high end headphones, earphones, speakers, and audio accessories. We have a large showroom and luxury demonstration rooms available for you to browse and experience a wide range of our products. Stop by our store to meet some of the fantastic people who make Audiophile the best place to buy your portable audio equipment.
+            </p>
+          </div>
+          <img 
+            src="/images/Bitmap (1).png" 
+            alt="Person with headphones" 
+            className="about-image"
+          />
+        </div>
+      </section>
     </div>
   );
-}
+};
+
+export default LandingPage;
