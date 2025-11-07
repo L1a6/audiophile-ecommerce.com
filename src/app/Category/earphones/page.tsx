@@ -18,7 +18,7 @@ export default function Headphones() {
       <section className="hp-container" aria-labelledby="hp-product-1">
         <div className="hp-image">
           <Image
-            src="/images/Group 3 (6).png"
+            src="/images/group-3-6.png"
             alt="yx1"
             width={540}
             height={560}

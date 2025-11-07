@@ -218,7 +218,7 @@ const Navbar: React.FC = () => {
                   <h3 className="menu-category-title">HEADPHONES</h3>
                   <div className="menu-shop-link">
                     <span className="menu-cta-text">SHOP</span>
-                    <img src="/images/Path 2.png" alt="" className="menu-cta-icon" />
+                    <img src="/images/path-2.png" alt="" className="menu-cta-icon" />
                   </div>
                 </div>
               </Link>
@@ -231,7 +231,7 @@ const Navbar: React.FC = () => {
                   <h3 className="menu-category-title">SPEAKERS</h3>
                   <div className="menu-shop-link">
                     <span className="menu-cta-text">SHOP</span>
-                    <img src="/images/Path 2.png" alt="" className="menu-cta-icon" />
+                    <img src="/images/path-2.png" alt="" className="menu-cta-icon" />
                   </div>
                 </div>
               </Link>
@@ -244,7 +244,7 @@ const Navbar: React.FC = () => {
                   <h3 className="menu-category-title">EARPHONES</h3>
                   <div className="menu-shop-link">
                     <span className="menu-cta-text">SHOP</span>
-                    <img src="/images/Path 2.png" alt="" className="menu-cta-icon" />
+                    <img src="/images/path-2.png" alt="" className="menu-cta-icon" />
                   </div>
                 </div>
               </Link>

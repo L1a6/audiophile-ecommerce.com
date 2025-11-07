@@ -20,7 +20,7 @@ const CategoryCard = ({ image, title, link }: CategoryCardProps) => {
       <h3 className="category-title">{title}</h3>
       <a href={link} className="category-cta">
         <span className="cta-text">Shop</span>
-        <img src="/images/Path 2.png" alt="" className="cta-icon" />
+        <img src="/images/path-2.png" alt="" className="cta-icon" />
       </a>
     </div>
   );
@@ -31,17 +31,17 @@ const CategorySection = () => {
     <section className="category-section">
       <div className="category-container">
         <CategoryCard
-          image="/images/image-removebg-preview(41).png"
+          image="/images/image-removebg-preview41.png"
           title="Headphones"
           link="/Category/headphones"
         />
         <CategoryCard
-          image="/images/image-removebg-preview(38).png"
+          image="/images/image-removebg-preview38.png"
           title="Speakers"
           link="/Category/speakers"
         />
         <CategoryCard
-          image="/images/image-removebg-preview(42).png"
+          image="/images/image-removebg-preview42.png"
           title="Earphones"
           link="/Category/earphones"
         />

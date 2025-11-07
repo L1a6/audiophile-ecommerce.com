@@ -44,7 +44,7 @@ export default function Headphones() {
       <section className="hp-container hp-reverse" aria-labelledby="hp-product-2">
         <div className="hp-image">
           <Image
-            src="/images/Group 3 (5).png"
+            src="/images/group-3-5.png"
             alt="ZX9"
             width={540}
             height={560}

@@ -46,7 +46,7 @@ const ProductDetail: React.FC = () => {
       name: "XX59 HEADPHONES",
       price: 899,
       quantity: quantity,
-      image: "/images/Group 3 (8).png",
+      image: "/images/group-3-8.png",
       shortName: "XX59 HEADPHONES",
     };
 
@@ -78,7 +78,7 @@ const ProductDetail: React.FC = () => {
 
         <section className="product-section">
           <figure className="product-image">
-            <img src="/images/Group 3 (8).png" alt="XX59 Headphones" />
+            <img src="/images/group-3-8.png" alt="XX59 Headphones" />
           </figure>
 
           <article className="product-info">
@@ -145,14 +145,14 @@ const ProductDetail: React.FC = () => {
         <section className="gallery-section">
           <div className="gallery-left">
             <figure>
-              <img src="/images/Nicer.png" alt="Product detail 1" className="gallery-img-1" />
+              <img src="/images/nicer.png" alt="Product detail 1" className="gallery-img-1" />
             </figure>
             <figure>
-              <img src="/images/Bitmap (5).png" alt="Product detail 2" className="gallery-img-2" />
+              <img src="/images/bitmap-5.png" alt="Product detail 2" className="gallery-img-2" />
             </figure>
           </div>
           <figure className="gallery-right">
-            <img src="/images/Bitmap (6).png" alt="Product detail 3" className="gallery-img-3" />
+            <img src="/images/bitmap-6.png" alt="Product detail 3" className="gallery-img-3" />
           </figure>
         </section>
 
@@ -160,7 +160,7 @@ const ProductDetail: React.FC = () => {
           <h2 className="you-may-like-title">You may also like</h2>
           <div className="related-products">
             <article className="related-product">
-              <img src="/images/Group 12 (3).png" alt="XX99 Mark II" className="related-product-image" />
+              <img src="/images/group-12-3.png" alt="XX99 Mark II" className="related-product-image" />
               <h3 className="related-product-title">XX99 MARK II</h3>
               <Link href="/headphones/xx99-mark-two">
                 <button className="related-product-btn">See product</button>
@@ -168,7 +168,7 @@ const ProductDetail: React.FC = () => {
             </article>
 
             <article className="related-product">
-              <img src="/images/Group 12.png" alt="XX99" className="related-product-image" />
+              <img src="/images/group-12.png" alt="XX99" className="related-product-image" />
               <h3 className="related-product-title">XX99 MARK I</h3>
               <Link href="/headphones/xx99-mark-one">
                 <button className="related-product-btn">See product</button>
@@ -176,7 +176,7 @@ const ProductDetail: React.FC = () => {
             </article>
 
             <article className="related-product">
-              <img src="/images/Group 12 (2).png" alt="ZX9 Speaker" className="related-product-image" />
+              <img src="/images/group-12-2.png" alt="ZX9 Speaker" className="related-product-image" />
               <h3 className="related-product-title">ZX9 SPEAKER</h3>
               <Link href="/speakers/zx9">
                 <button className="related-product-btn">See product</button>

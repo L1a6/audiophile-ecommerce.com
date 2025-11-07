@@ -16,7 +16,7 @@ const BestGear: React.FC = () => {
           </p>
         </div>
         <div className="best-gear-image">
-          <img src="/images/Bitmap (1).png" alt="Best Audio Gear" />
+          <img src="/images/bitmap-1.png" alt="Best Audio Gear" />
         </div>
       </div>
     </section>

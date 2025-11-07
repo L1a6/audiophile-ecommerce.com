@@ -215,7 +215,7 @@ setErrors(newErrors);
     return (
       <div className="thank-you-overlay">
         <div className="thank-you-modal">
-          <img src="/Group 12 (5).png" alt="Success" className="thank-you-icon" />
+          <img src="/group-12-5.png" alt="Success" className="thank-you-icon" />
           <h1 className="thank-you-title">THANK YOU FOR YOUR ORDER</h1>
           <p className="thank-you-text">You will receive an email confirmation shortly.</p>
           
