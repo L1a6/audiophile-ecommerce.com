@@ -44,36 +44,24 @@
   position: absolute;
   z-index: 2;
   object-fit: contain;
-  top: 0;
+  top: 10px;
 }
 
 .category-card:nth-child(1) .category-image {
-  width: 122.95px;
-  height: 160px;
+  width: 170px;
+  height: 200px;
 }
 
 .category-card:nth-child(2) .category-image {
-  width: 121.49px;
-  height: 146px;
+  width: 170px;
+  height: 200px;
 }
 
 .category-card:nth-child(3) .category-image {
-  width: 125px;
-  height: 126px;
+  width: 170px;
+  height: 200px;
 }
 
-.category-shadow {
-  position: absolute;
-  width: 122px;
-  height: 40px;
-  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0) 70%);
-  filter: blur(20px);
-  z-index: 1;
-  top: 130px;
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 2;
-}
 
 .category-title {
   position: absolute;

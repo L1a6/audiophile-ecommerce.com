@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
         {/* Logo and Navigation Row */}
         <div className="footer-nav-row">
           <img 
-            src="/images/audiophile.png" 
+            src="/Images/audiophile.png" 
             alt="Audiophile" 
             className="footer-logo"
           />

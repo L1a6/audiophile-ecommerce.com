@@ -13,7 +13,7 @@ const LandingPage = () => {
       <section className="hero-section">
         <div className="hero-background"></div>
         <img 
-          src="/images/bitmap-2.png" 
+          src="/Images/bitmap-2.png" 
           alt="XX99 Mark II Headphones" 
           className="hero-image"
         />
@@ -38,9 +38,9 @@ const LandingPage = () => {
       {/* ZX9 Speaker Section */}
       <section className="zx9-section">
         <div className="zx9-container">
-          <img src="/images/group-4.png" alt="" className="zx9-pattern" />
+          <img src="/Images/group-4.png" alt="" className="zx9-pattern" />
           <img 
-            src="/images/image-removebg-preview38.png" 
+            src="/Images/image-removebg-preview38.png" 
             alt="ZX9 Speaker" 
             className="zx9-speaker-image"
           />
@@ -58,7 +58,7 @@ const LandingPage = () => {
       {/* ZX7 Speaker Section */}
       <section className="zx7-section">
         <div className="zx7-container">
-          <img src="/images/bitmap2.png" alt="ZX7 Speaker" className="zx7-image" />
+          <img src="/Images/bitmap2.png" alt="ZX7 Speaker" className="zx7-image" />
           <div className="zx7-content">
             <h2 className="zx7-title">ZX7 SPEAKER</h2>
           <Link href="/speakers/zx7"><button className="cta-button outline">SEE PRODUCT</button></Link>
@@ -69,9 +69,9 @@ const LandingPage = () => {
       {/* YX1 Earphones Section */}
       <section className="yx1-section">
         <div className="yx1-container">
-          <img src="/images/group-12.png" alt="YX1 Earphones" className="yx1-image-left" />
+          <img src="/Images/group-12.png" alt="YX1 Earphones" className="yx1-image-left" />
           <div className="yx1-right">
-            <img src="/images/mask-5.png" alt="" className="yx1-mask" />
+            <img src="/Images/mask-5.png" alt="" className="yx1-mask" />
             <div className="yx1-content">
               <h2 className="yx1-title">YX1 EARPHONES</h2>
               <Link href="/earphones/yx1"><button className="cta-button outline">SEE PRODUCT</button></Link>
@@ -92,7 +92,7 @@ const LandingPage = () => {
             </p>
           </div>
           <img 
-            src="/images/bitmap-1.png" 
+            src="/Images/bitmap-1.png" 
             alt="Person with headphones" 
             className="about-image"
           />

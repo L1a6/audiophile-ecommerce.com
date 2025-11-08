@@ -17,7 +17,7 @@ export default function Headphones() {
       <section className="hp-container" aria-labelledby="hp-product-1">
         <div className="hp-image">
           <img
-            src="/images/group-3-4.png"
+            src="/Images/group-3-4.png"
             alt="ZX9"
           />
         </div>
@@ -40,7 +40,7 @@ export default function Headphones() {
       <section className="hp-container hp-reverse" aria-labelledby="hp-product-2">
         <div className="hp-image">
           <img
-            src="/images/group-3-5.png"
+            src="/Images/group-3-5.png"
             alt="ZX9"
           />
         </div>

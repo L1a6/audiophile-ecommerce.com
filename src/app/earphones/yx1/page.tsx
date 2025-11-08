@@ -47,7 +47,7 @@ const ProductDetail: React.FC = () => {
       name: "YX1 EARPHONES",
       price: 599,
       quantity: quantity,
-      image: "/images/group-3-10.png",
+      image: "/Images/group-3-10.png",
       shortName: "YX1 EARPHONES",
     };
 
@@ -79,7 +79,7 @@ const ProductDetail: React.FC = () => {
 
         <section className="product-section">
           <figure className="product-image">
-            <img src="/images/group-3-10.png" alt="YX1 EARPHONES" />
+            <img src="/Images/group-3-10.png" alt="YX1 EARPHONES" />
           </figure>
 
           <article className="product-info">
@@ -151,14 +151,14 @@ const ProductDetail: React.FC = () => {
         <section className="gallery-section">
           <div className="gallery-left">
             <figure>
-              <img src="/images/bitmap-13.png" alt="Product detail 1" className="gallery-img-1" />
+              <img src="/Images/bitmap-13.png" alt="Product detail 1" className="gallery-img-1" />
             </figure>
             <figure>
-              <img src="/images/bitmap-14.png" alt="Product detail 2" className="gallery-img-2" />
+              <img src="/Images/bitmap-14.png" alt="Product detail 2" className="gallery-img-2" />
             </figure>
           </div>
           <figure className="gallery-right">
-            <img src="/images/bitmap-15.png" alt="Product detail 3" className="gallery-img-3" />
+            <img src="/Images/bitmap-15.png" alt="Product detail 3" className="gallery-img-3" />
           </figure>
         </section>
 
@@ -167,7 +167,7 @@ const ProductDetail: React.FC = () => {
           <div className="related-products">
 
             <article className="related-product">
-              <img src="/images/group-12.png" alt="XX59" className="related-product-image" />
+              <img src="/Images/group-12.png" alt="XX59" className="related-product-image" />
               <h3 className="related-product-title">XX99 MARK I</h3>
               <Link href="/headphones/xx99-mark-one">
                 <button className="related-product-btn">See product</button>
@@ -175,7 +175,7 @@ const ProductDetail: React.FC = () => {
             </article>
 
             <article className="related-product">
-              <img src="/images/group-12-1.png" alt="ZX9 Speaker" className="related-product-image" />
+              <img src="/Images/group-12-1.png" alt="ZX9 Speaker" className="related-product-image" />
               <h3 className="related-product-title">XX59</h3>
               <Link href="/headphones/xx59">
                 <button className="related-product-btn">See product</button>
@@ -183,7 +183,7 @@ const ProductDetail: React.FC = () => {
             </article>
 
             <article className="related-product">
-              <img src="/images/group-12-2.png" alt="ZX9 SPEAKER" className="related-product-image" />
+              <img src="/Images/group-12-2.png" alt="ZX9 SPEAKER" className="related-product-image" />
               <h3 className="related-product-title">ZX9 SPEAKER</h3>
               <Link href="/speakers/zx9">
                 <button className="related-product-btn">See product</button>

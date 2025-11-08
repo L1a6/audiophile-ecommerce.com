@@ -101,11 +101,11 @@ const Checkout: React.FC = () => {
           const parsedCart = JSON.parse(stored);
           const validatedCart = parsedCart.map((item: any) => ensureShortName(item));
           localStorage.setItem('cart', JSON.stringify(validatedCart));
-          console.log('✅ Cart loaded:', validatedCart);
+          console.log('Cart loaded:', validatedCart);
           setCartItems(validatedCart);
         }
       } catch (error) {
-        console.error('❌ Error loading cart:', error);
+        console.error('Error loading cart:', error);
       }
     };
 
@@ -118,7 +118,7 @@ const Checkout: React.FC = () => {
           const validatedCart = parsedCart.map((item: any) => ensureShortName(item));
           setCartItems(validatedCart);
         } catch (error) {
-          console.error('❌ Error parsing cart:', error);
+          console.error('Error parsing cart:', error);
         }
       }
     };
@@ -185,7 +185,7 @@ const Checkout: React.FC = () => {
     setTouchedFields(new Set(Object.keys(formData)));
 
     if (!validateForm()) {
-      console.log('❌ Form validation failed');
+      console.log('Form validation failed');
       return;
     }
 
@@ -196,7 +196,7 @@ const Checkout: React.FC = () => {
 
     const invalidItems = cartItems.filter(item => !item.shortName || item.shortName.trim() === '');
     if (invalidItems.length > 0) {
-      console.error('❌ Items missing shortName:', invalidItems);
+      console.error('Items missing shortName:', invalidItems);
       alert('There was an error with your cart items. Please refresh and try again.');
       return;
     }
@@ -204,7 +204,7 @@ const Checkout: React.FC = () => {
     setIsSubmitting(true);
 
     try {
-      console.log('📤 Submitting order...');
+      console.log('Submitting order...');
 
       // CRITICAL: Capture order data IMMEDIATELY using current state
       const orderSnapshot: CompletedOrder = {
@@ -213,10 +213,10 @@ const Checkout: React.FC = () => {
         shipping: shipping,
         vat: vat,
         grandTotal: grandTotal,
-        orderNumber: '' // Will be set after API call
+        orderNumber: '' 
       };
 
-      console.log('📸 Order snapshot captured:', orderSnapshot);
+      console.log('Order snapshot captured:', orderSnapshot);
 
       // Create order
       const result = await createOrder({
@@ -244,7 +244,7 @@ const Checkout: React.FC = () => {
         grandTotal
       });
 
-      console.log('✅ Order created:', result.orderNumber);
+      console.log('Order created:', result.orderNumber);
 
       // Update order snapshot with order number
       orderSnapshot.orderNumber = result.orderNumber;
@@ -255,7 +255,7 @@ const Checkout: React.FC = () => {
       // Update state with complete order data
       setCompletedOrder(orderSnapshot);
 
-      console.log('💾 Completed order set:', orderSnapshot);
+      console.log('Completed order set:', orderSnapshot);
 
       // Clear cart from localStorage
       localStorage.removeItem('cart');
@@ -265,7 +265,7 @@ const Checkout: React.FC = () => {
       setShowThankYou(true);
 
     } catch (error: any) {
-      console.error('❌ Error submitting order:', error);
+      console.error('Error submitting order:', error);
       alert(`Error: ${error?.message || 'Failed to create order'}`);
     } finally {
       setIsSubmitting(false);
@@ -279,7 +279,7 @@ const Checkout: React.FC = () => {
     const orderToDisplay = completedOrder || completedOrderRef.current;
 
     if (!orderToDisplay) {
-      console.error('❌ No order data available for thank you modal');
+      console.error(' No order data available for thank you modal');
       return (
         <div className="thank-you-overlay">
           <div className="thank-you-modal">
