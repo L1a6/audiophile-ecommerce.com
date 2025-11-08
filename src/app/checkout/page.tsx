@@ -1,7 +1,6 @@
-
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { useMutation } from 'convex/react';
 import { api } from '@/convex/_generated/api';
@@ -34,6 +33,36 @@ interface FormErrors {
   [key: string]: string | undefined;
 }
 
+interface CompletedOrder {
+  items: CartItem[];
+  total: number;
+  shipping: number;
+  vat: number;
+  grandTotal: number;
+  orderNumber: string;
+}
+
+// Helper function to ensure shortName exists
+function ensureShortName(item: any): CartItem {
+  if (!item.shortName || item.shortName.trim() === '') {
+    const words = item.name.split(' ');
+    item.shortName = words.length <= 2 ? item.name : words.slice(0, 2).join(' ');
+  }
+  return item as CartItem;
+}
+
+// Helper to create deep copy of cart items
+function deepCopyCartItems(items: CartItem[]): CartItem[] {
+  return items.map(item => ({
+    id: item.id,
+    name: item.name,
+    price: item.price,
+    quantity: item.quantity,
+    image: item.image,
+    shortName: item.shortName
+  }));
+}
+
 const Checkout: React.FC = () => {
   const router = useRouter();
   const createOrder = useMutation(api.orders.create);
@@ -42,7 +71,10 @@ const Checkout: React.FC = () => {
   const [showThankYou, setShowThankYou] = useState(false);
   const [showAllItems, setShowAllItems] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [orderNumber, setOrderNumber] = useState<string>('');
+
+  // Use ref to capture order data BEFORE any state changes
+  const completedOrderRef = useRef<CompletedOrder | null>(null);
+  const [completedOrder, setCompletedOrder] = useState<CompletedOrder | null>(null);
 
   const [formData, setFormData] = useState<FormData>({
     name: '',
@@ -66,10 +98,14 @@ const Checkout: React.FC = () => {
       try {
         const stored = localStorage.getItem('cart');
         if (stored) {
-          setCartItems(JSON.parse(stored));
+          const parsedCart = JSON.parse(stored);
+          const validatedCart = parsedCart.map((item: any) => ensureShortName(item));
+          localStorage.setItem('cart', JSON.stringify(validatedCart));
+          console.log('✅ Cart loaded:', validatedCart);
+          setCartItems(validatedCart);
         }
       } catch (error) {
-        console.error('Error loading cart:', error);
+        console.error('❌ Error loading cart:', error);
       }
     };
 
@@ -78,9 +114,11 @@ const Checkout: React.FC = () => {
     const handleStorageChange = (e: StorageEvent) => {
       if (e.key === 'cart' && e.newValue) {
         try {
-          setCartItems(JSON.parse(e.newValue));
+          const parsedCart = JSON.parse(e.newValue);
+          const validatedCart = parsedCart.map((item: any) => ensureShortName(item));
+          setCartItems(validatedCart);
         } catch (error) {
-          console.error('Error parsing cart:', error);
+          console.error('❌ Error parsing cart:', error);
         }
       }
     };
@@ -101,7 +139,7 @@ const Checkout: React.FC = () => {
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
-    
+
     if (!formData.name.trim()) newErrors.name = 'Required';
     if (!formData.email.trim()) {
       newErrors.email = 'Required';
@@ -113,12 +151,12 @@ const Checkout: React.FC = () => {
     if (!formData.zipCode.trim()) newErrors.zipCode = 'Required';
     if (!formData.city.trim()) newErrors.city = 'Required';
     if (!formData.country.trim()) newErrors.country = 'Required';
-    
+
     if (formData.paymentMethod === 'e-money') {
       if (!formData.eMoneyNumber.trim()) newErrors.eMoneyNumber = 'Required';
       if (!formData.eMoneyPin.trim()) newErrors.eMoneyPin = 'Required';
     }
-    
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -127,12 +165,11 @@ const Checkout: React.FC = () => {
   const handleInputChange = (field: keyof FormData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
     setTouchedFields(prev => new Set([...prev, field]));
-    
+
     if (errors[field]) {
       const newErrors = { ...errors };
       delete newErrors[field];
-  
-setErrors(newErrors);
+      setErrors(newErrors);
     }
   };
 
@@ -142,27 +179,46 @@ setErrors(newErrors);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (isSubmitting) return;
 
-    // Mark all fields as touched for validation display
     setTouchedFields(new Set(Object.keys(formData)));
 
-    // Validate form
     if (!validateForm()) {
+      console.log('❌ Form validation failed');
       return;
     }
 
-    // Check if cart is empty
     if (cartItems.length === 0) {
       alert('Your cart is empty');
+      return;
+    }
+
+    const invalidItems = cartItems.filter(item => !item.shortName || item.shortName.trim() === '');
+    if (invalidItems.length > 0) {
+      console.error('❌ Items missing shortName:', invalidItems);
+      alert('There was an error with your cart items. Please refresh and try again.');
       return;
     }
 
     setIsSubmitting(true);
 
     try {
-      // Create order (this will automatically trigger email via scheduler)
+      console.log('📤 Submitting order...');
+
+      // CRITICAL: Capture order data IMMEDIATELY using current state
+      const orderSnapshot: CompletedOrder = {
+        items: deepCopyCartItems(cartItems),
+        total: total,
+        shipping: shipping,
+        vat: vat,
+        grandTotal: grandTotal,
+        orderNumber: '' // Will be set after API call
+      };
+
+      console.log('📸 Order snapshot captured:', orderSnapshot);
+
+      // Create order
       const result = await createOrder({
         customerName: formData.name,
         customerEmail: formData.email,
@@ -188,48 +244,105 @@ setErrors(newErrors);
         grandTotal
       });
 
-      // Store order number for thank you page
-      setOrderNumber(result.orderNumber);
+      console.log('✅ Order created:', result.orderNumber);
 
-      // Clear cart
+      // Update order snapshot with order number
+      orderSnapshot.orderNumber = result.orderNumber;
+
+      // Store in ref for immediate access
+      completedOrderRef.current = orderSnapshot;
+
+      // Update state with complete order data
+      setCompletedOrder(orderSnapshot);
+
+      console.log('💾 Completed order set:', orderSnapshot);
+
+      // Clear cart from localStorage
       localStorage.removeItem('cart');
       setCartItems([]);
 
       // Show thank you modal
       setShowThankYou(true);
 
-      console.log('✅ Order created successfully:', result.orderNumber);
-    } catch (error) {
+    } catch (error: any) {
       console.error('❌ Error submitting order:', error);
-      alert('There was an error processing your order. Please try again.');
+      alert(`Error: ${error?.message || 'Failed to create order'}`);
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  // Helper function to format price
   const formatPrice = (price: number) => `$ ${price.toLocaleString()}`;
 
-  // Thank You Modal
+  // Thank You Modal - Use ref if state hasn't updated yet
   if (showThankYou) {
+    const orderToDisplay = completedOrder || completedOrderRef.current;
+
+    if (!orderToDisplay) {
+      console.error('❌ No order data available for thank you modal');
+      return (
+        <div className="thank-you-overlay">
+          <div className="thank-you-modal">
+            <p>Error loading order details. Please contact support.</p>
+            <button className="thank-you-btn" onClick={() => router.push('/')}>
+              BACK TO HOME
+            </button>
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div className="thank-you-overlay">
         <div className="thank-you-modal">
-          <img src="/group-12-5.png" alt="Success" className="thank-you-icon" />
+          <div style={{
+            width: '64px',
+            height: '64px',
+            backgroundColor: '#D87D4A',
+            borderRadius: '50%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            margin: '0 auto 24px'
+          }}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M20 6L9 17L4 12" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+
           <h1 className="thank-you-title">THANK YOU FOR YOUR ORDER</h1>
           <p className="thank-you-text">You will receive an email confirmation shortly.</p>
-          
-          {orderNumber && (
-            <div className="order-number-display">
-              <p className="order-number-label">Order Number:</p>
-              <p className="order-number-value">{orderNumber}</p>
+
+          {orderToDisplay.orderNumber && (
+            <div style={{
+              backgroundColor: '#F1F1F1',
+              padding: '16px',
+              borderRadius: '8px',
+              margin: '24px 0',
+              textAlign: 'center'
+            }}>
+              <p style={{
+                margin: '0 0 8px 0',
+                fontSize: '13px',
+                fontWeight: 700,
+                opacity: 0.5
+              }}>
+                ORDER NUMBER
+              </p>
+              <p style={{
+                margin: 0,
+                fontSize: '18px',
+                fontWeight: 700
+              }}>
+                {orderToDisplay.orderNumber}
+              </p>
             </div>
           )}
 
           <div className="thank-you-content">
             <div className="thank-you-items">
-              {cartItems.slice(0, showAllItems ? cartItems.length : 1).map(item => (
-                <div key={item.id} className="thank-you-item">
+              {orderToDisplay.items.slice(0, showAllItems ? orderToDisplay.items.length : 1).map((item, index) => (
+                <div key={`${item.id}-${index}`} className="thank-you-item">
                   <img src={item.image} alt={item.name} className="thank-you-item-image" />
                   <div className="thank-you-item-details">
                     <p className="thank-you-item-name">{item.shortName}</p>
@@ -238,21 +351,21 @@ setErrors(newErrors);
                   <p className="thank-you-item-quantity">x{item.quantity}</p>
                 </div>
               ))}
-              {cartItems.length > 1 && (
+              {orderToDisplay.items.length > 1 && (
                 <>
                   <div className="thank-you-divider"></div>
-                  <button 
-                    className="thank-you-toggle" 
+                  <button
+                    className="thank-you-toggle"
                     onClick={() => setShowAllItems(!showAllItems)}
                   >
-                    {showAllItems ? 'View less' : `and ${cartItems.length - 1} other item(s)`}
+                    {showAllItems ? 'View less' : `and ${orderToDisplay.items.length - 1} other item(s)`}
                   </button>
                 </>
               )}
             </div>
             <div className="thank-you-total">
               <p className="thank-you-total-label">GRAND TOTAL</p>
-              <p className="thank-you-total-amount">{formatPrice(grandTotal)}</p>
+              <p className="thank-you-total-amount">{formatPrice(orderToDisplay.grandTotal)}</p>
             </div>
           </div>
           <button className="thank-you-btn" onClick={() => router.push('/')}>
@@ -276,9 +389,9 @@ setErrors(newErrors);
             <h1 className="checkout-title">CHECKOUT</h1>
 
             {/* BILLING DETAILS */}
-            <div className="form-section">
+            <section className="form-section">
               <h2 className="section-title">BILLING DETAILS</h2>
-              
+
               <div className="form-row">
                 <div className="form-group">
                   <label className={`form-label ${touchedFields.has('name') && errors.name ? 'error' : ''}`}>
@@ -325,8 +438,7 @@ setErrors(newErrors);
                   </label>
                   <input
                     type="tel"
-                    className={`form-input ${touchedFields.has('phone') && errors.phone ? 'error' : 
-''}`}
+                    className={`form-input ${touchedFields.has('phone') && errors.phone ? 'error' : ''}`}
                     value={formData.phone}
                     onChange={(e) => handleInputChange('phone', e.target.value)}
                     onBlur={() => handleBlur('phone')}
@@ -334,12 +446,12 @@ setErrors(newErrors);
                   />
                 </div>
               </div>
-            </div>
+            </section>
 
             {/* SHIPPING INFO */}
-            <div className="form-section">
+            <section className="form-section">
               <h2 className="section-title">SHIPPING INFO</h2>
-              
+
               <div className="form-group full-width">
                 <label className={`form-label ${touchedFields.has('address') && errors.address ? 'error' : ''}`}>
                   Address
@@ -411,12 +523,12 @@ setErrors(newErrors);
                   />
                 </div>
               </div>
-            </div>
+            </section>
 
             {/* PAYMENT DETAILS */}
-            <div className="form-section">
+            <section className="form-section">
               <h2 className="section-title">PAYMENT DETAILS</h2>
-              
+
               <div className="payment-method-row">
                 <label className="form-label">Payment Method</label>
                 <div className="payment-options">
@@ -431,7 +543,7 @@ setErrors(newErrors);
                     <span className="radio-custom"></span>
                     <span className="payment-label">e-Money</span>
                   </label>
-                  
+
                   <label className={`payment-option ${formData.paymentMethod === 'cash' ? 'selected' : ''}`}>
                     <input
                       type="radio"
@@ -486,19 +598,18 @@ setErrors(newErrors);
 
               {formData.paymentMethod === 'cash' && (
                 <div className="cash-delivery-info">
-                  <img src="/cash-on-delivery.svg" alt="Cash on Delivery" className="cash-icon" />
                   <p className="cash-text">
-                    The 'Cash on Delivery' option enables you to pay in cash when our delivery courier arrives at your residence. Just make sure your address is correct so that your order will not be cancelled.
+                    The 'Cash on Delivery' option enables you to pay in cash when our delivery courier arrives at your residence.
                   </p>
                 </div>
               )}
-            </div>
+            </section>
           </form>
 
           {/* ORDER SUMMARY */}
-          <div className="checkout-summary">
+          <aside className="checkout-summary">
             <h2 className="summary-title">SUMMARY</h2>
-            
+
             <div className="summary-items">
               {cartItems.map(item => (
                 <div key={item.id} className="summary-item">
@@ -511,6 +622,12 @@ setErrors(newErrors);
                 </div>
               ))}
             </div>
+
+            {cartItems.length === 0 && (
+              <p style={{ textAlign: 'center', color: '#CD2C2C', margin: '20px 0' }}>
+                Your cart is empty
+              </p>
+            )}
 
             <div className="summary-totals">
               <div className="summary-row">
@@ -531,19 +648,15 @@ setErrors(newErrors);
               </div>
             </div>
 
-            <button 
-              type="submit" 
-              className="summary-btn" 
-              onClick={handleSubmit} 
+            <button
+              type="submit"
+              className="summary-btn"
+              onClick={handleSubmit}
               disabled={isSubmitting || cartItems.length === 0}
             >
               {isSubmitting ? 'PROCESSING...' : 'CONTINUE & PAY'}
             </button>
-
-            {cartItems.length === 0 && (
-              <p className="empty-cart-message">Your cart is empty</p>
-            )}
-          </div>
+          </aside>
         </div>
       </div>
     </div>

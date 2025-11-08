@@ -7,7 +7,7 @@ import '@/styles/navbar.css';
 interface CartItem {
   id: string;
   name: string;
-  shortName: string; // ✅ Added to fix Convex validation
+  shortName: string; 
   price: number;
   quantity: number;
   image: string;
@@ -20,8 +20,7 @@ const Navbar: React.FC = () => {
   const [lastScrollY, setLastScrollY] = useState<number>(0);
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [cartCount, setCartCount] = useState<number>(0);
-
-  // Handle scroll to hide/show navbar
+ 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -37,7 +36,6 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
 
-  // Load cart from localStorage
   useEffect(() => {
     loadCartFromStorage();
 
@@ -111,7 +109,6 @@ const Navbar: React.FC = () => {
     loadCartFromStorage();
   };
 
-  // Remove all items from cart
   const removeAllItems = () => {
     setCartItems([]);
     setCartCount(0);
@@ -119,19 +116,16 @@ const Navbar: React.FC = () => {
     localStorage.removeItem('productQuantity');
   };
 
-  // Calculate cart total
   const calculateTotal = () => {
     return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
   };
 
-  // Format item name for shortName
   const formatItemName = (name: string) => {
     const words = name.split(' ');
     if (words.length <= 2) return name;
     return words.slice(0, 2).join(' ');
   };
 
-  // Add item to cart with shortName
   const addToCart = (product: { id: string; name: string; price: number; image: string }) => {
     const savedCart = localStorage.getItem('cart');
     const cart: CartItem[] = savedCart ? JSON.parse(savedCart) : [];
@@ -147,7 +141,7 @@ const Navbar: React.FC = () => {
       const newItem: CartItem = {
         id: product.id,
         name: product.name,
-        shortName: formatItemName(product.name), // ✅ Include shortName
+        shortName: formatItemName(product.name), 
         price: product.price,
         quantity: 1,
         image: product.image,
@@ -162,7 +156,6 @@ const Navbar: React.FC = () => {
 
   return (
     <>
-      {/* Navbar */}
       <nav className={`navbar ${isVisible ? 'visible' : 'hidden'}`}>
         <div className="navbar-container">
           <button className="hamburger" onClick={toggleMenu} aria-label="Menu" aria-expanded={isMenuOpen}>
@@ -198,14 +191,13 @@ const Navbar: React.FC = () => {
           </div>
 
           <div className="cart-icon" onClick={toggleCart}>
-            <img src="/images/Combined Shape.svg" alt="Cart" width={23.33} height={20} />
+            <img src="/images/combined-shape.svg" alt="Cart" width={23.33} height={20} />
             {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
           </div>
         </div>
         <div className="navbar-divider"></div>
       </nav>
 
-      {/* Menu Overlay */}
       {isMenuOpen && (
         <div className="menu-overlay" onClick={closeMenu}>
           <div className="menu-bar" onClick={(e) => e.stopPropagation()}>
@@ -253,7 +245,6 @@ const Navbar: React.FC = () => {
         </div>
       )}
 
-      {/* Cart Overlay */}
       {isCartOpen && (
         <div className="cart-overlay" onClick={closeCart}>
           <div className="cart-popup">
@@ -270,7 +261,7 @@ const Navbar: React.FC = () => {
                   <div key={item.id} className="cart-item">
                     <img src={item.image} alt={item.name} className="cart-item-image" />
                     <div className="cart-item-info">
-                      <p className="cart-item-name">{item.shortName}</p> {/* ✅ use shortName */}
+                      <p className="cart-item-name">{item.shortName}</p>
                       <p className="cart-item-price">$ {item.price.toLocaleString()}</p>
                     </div>
                     <div className="cart-item-quantity">
