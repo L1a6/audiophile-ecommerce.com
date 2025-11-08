@@ -191,7 +191,7 @@ const Navbar: React.FC = () => {
           </div>
 
           <div className="cart-icon" onClick={toggleCart}>
-            <img src="/images/combined-shape.svg" alt="Cart" width={23.33} height={20} />
+            <img src="/images/combined-shape.svg" alt="Cart" />
             {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
           </div>
         </div>
@@ -231,7 +231,7 @@ const Navbar: React.FC = () => {
               <Link href="/Category/earphones" className="menu-category-item" onClick={() => setIsMenuOpen(false)}>
                 <div className="menu-category-card">
                   <div className="menu-category-mask"></div>
-                  <img src="/images/image-removebg-preview(42).png" alt="Earphones" className="menu-category-image earphones-image" />
+                  <img src="/images/image-removebg-preview42.png" alt="Earphones" className="menu-category-image earphones-image" />
                   <div className="menu-category-shadow"></div>
                   <h3 className="menu-category-title">EARPHONES</h3>
                   <div className="menu-shop-link">

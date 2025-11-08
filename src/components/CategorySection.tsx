@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import "@/styles/categorysection.css";
-import Image from "next/image";
 import Link from "next/link";
 
 
