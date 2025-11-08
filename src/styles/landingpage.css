@@ -139,9 +139,6 @@ body {
   color: #FFFFFF;
 }
 
-/* ============================================
-   CATEGORY SECTION - DESKTOP
-   ============================================ */
 .category-section {
   width: 100%;
   padding: 168px 0;
@@ -323,9 +320,6 @@ body {
   object-fit: contain;
 }
 
-/* ============================================
-   ZX9 SPEAKER SECTION - DESKTOP
-   ============================================ */
 .zx9-section {
   width: 100%;
   background-color: #FAFAFA;
@@ -397,9 +391,6 @@ body {
   margin-bottom: 40px;
 }
 
-/* ============================================
-   ZX7 SPEAKER SECTION - DESKTOP
-   ============================================ */
 .zx7-section {
   width: 100%;
   margin: 48px auto 0;
@@ -447,9 +438,6 @@ body {
   margin-bottom: 32px;
 }
 
-/* ============================================
-   YX1 EARPHONES SECTION - DESKTOP
-   ============================================ */
 .yx1-section {
   width: 100%;
   margin: 48px auto 0;
@@ -509,9 +497,6 @@ body {
   margin-bottom: 32px;
 }
 
-/* ============================================
-   ABOUT SECTION - DESKTOP
-   ============================================ */
 .about-section {
   width: 100%;
   margin: 200px auto 0;
@@ -569,9 +554,6 @@ body {
   object-fit: cover;
 }
 
-/* ============================================
-   TABLET STYLES - 768px
-   ============================================ */
 @media (max-width: 768px) {
   .hero-section {
     width: 768px;
@@ -797,9 +779,6 @@ body {
   }
 }
 
-/* ============================================
-   MOBILE STYLES - 375px
-   ============================================ */
 @media (max-width: 375px) {
   .hero-section {
     width: 375px;

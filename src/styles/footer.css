@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap');
 
-/* ============================================
-   FOOTER - DESKTOP (1440px)
-   ============================================ */
 .footer {
   position: relative;
   width: 1440px;
@@ -11,7 +8,6 @@
   background-color: #191919;
 }
 
-/* Orange accent line at top */
 .footer-line {
   position: absolute;
   width: 101px;
@@ -21,7 +17,6 @@
   background-color: #D87D4A;
 }
 
-/* Main content wrapper */
 .footer-content {
   position: absolute;
   width: 1110px;
@@ -29,9 +24,6 @@
   top: 75px;
 }
 
-/* ============================================
-   LOGO AND NAVIGATION ROW
-   ============================================ */
 .footer-nav-row {
   position: relative;
   width: 1110px;
@@ -74,9 +66,6 @@
   color: #D87D4A;
 }
 
-/* ============================================
-   DESCRIPTION AND SOCIAL ICONS (Desktop)
-   ============================================ */
 .footer-middle {
   position: relative;
   width: 1110px;
@@ -96,7 +85,6 @@
   margin: 0;
 }
 
-/* Social icons positioned absolutely relative to footer container */
 .footer-social-desktop {
   position: absolute;
   display: flex;
@@ -130,9 +118,6 @@
   height: auto;
 }
 
-/* ============================================
-   COPYRIGHT ROW
-   ============================================ */
 .footer-bottom-row {
   position: relative;
   width: 1110px;
@@ -155,9 +140,6 @@
   margin: 0;
 }
 
-/* ============================================
-   TABLET STYLES (768px)
-   ============================================ */
 @media (max-width: 768px) {
   .footer {
     width: 768px;
@@ -174,7 +156,6 @@
     top: 60px;
   }
 
-  /* Logo and Nav stacked vertically */
   .footer-nav-row {
     width: 689px;
     flex-direction: column;
@@ -195,7 +176,6 @@
     margin-left: 0;
   }
 
-  /* Description section */
   .footer-middle {
     width: 689px;
     margin-bottom: 80px;
@@ -207,12 +187,10 @@
     font-weight: 400;
   }
 
-  /* Hide desktop social icons */
   .footer-social-desktop {
     display: none;
   }
 
-  /* Show tablet social icons - positioned on same row as copyright */
   .footer-social-tablet {
     position: relative;
     display: flex;
@@ -232,9 +210,6 @@
   }
 }
 
-/* ============================================
-   MOBILE STYLES (375px)
-   ============================================ */
 @media (max-width: 375px) {
   .footer {
     width: 375px;
@@ -255,7 +230,6 @@
     align-items: center;
   }
 
-  /* Logo and Nav centered and stacked */
   .footer-nav-row {
     width: 100%;
     flex-direction: column;
@@ -281,7 +255,6 @@
     text-align: center;
   }
 
-  /* Description centered */
   .footer-middle {
     width: 327px;
     margin-bottom: 48px;
@@ -294,13 +267,11 @@
     text-align: center;
   }
 
-  /* Hide desktop and tablet social icons */
   .footer-social-desktop,
   .footer-social-tablet {
     display: none;
   }
 
-  /* Copyright and Social stacked vertically */
   .footer-bottom-row {
     width: 100%;
     flex-direction: column;
@@ -315,7 +286,6 @@
     margin-bottom: 48px;
   }
 
-  /* Show mobile social icons (below copyright) */
   .footer-social-mobile {
     display: flex;
     gap: 16px;

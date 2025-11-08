@@ -171,15 +171,6 @@
   object-fit: contain;
 }
 
-.menu-category-shadow {
-  position: absolute;
-  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0) 70%);
-  filter: blur(20px);
-  z-index: 1;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
 .menu-category-title {
   position: absolute;
   font-family: 'Manrope', sans-serif;
@@ -566,11 +557,6 @@
     height: 126px;
   }
 
-  .menu-category-shadow {
-    width: 122px;
-    height: 40px;
-    top: 130px;
-  }
 
   .menu-category-title {
     font-size: 18px;
@@ -646,26 +632,20 @@
 
   .menu-category-image {
     width: auto;
-    height: 100px;
-    top: -40px;
+    height: 160px;
+    top: 0px;
   }
 
   .menu-category-image.speakers-image {
     width: auto;
-    height: 97px;
-    top: -40px;
+    height: 160px;
+    top: 0px;
   }
 
   .menu-category-image.earphones-image {
     width: auto;
-    height: 100px;
-    top: -40px;
-  }
-
-  .menu-category-shadow {
-    width: 75px;
-    height: 11px;
-    top: 48px;
+    height: 160px;
+    top: 0px;
   }
 
   .menu-category-title {

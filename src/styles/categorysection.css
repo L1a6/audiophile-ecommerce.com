@@ -3,25 +3,32 @@
   display: flex;
   justify-content: center;
   padding: 0 24px;
-  margin-top: 60px;
+  margin: 60px 0;
+  box-sizing: border-box;
 }
 
+.category-section * {
+  box-sizing: border-box;
+}
+
+/* DESKTOP CONTAINER */
 .category-container {
-  width: 1110px;
-  height: 284px;
+  width: 100%;
+  max-width: 1110px;
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
   gap: 30px;
-  position: relative;
 }
 
 .category-card {
   width: 350px;
   height: 284px;
+  min-height: 284px;
   position: relative;
   background: transparent;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-shrink: 0;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
@@ -32,40 +39,50 @@
 
 .category-mask {
   position: absolute;
-  width: 350px;
+  width: 100%;
   height: 204px;
   background: #F1F1F1;
   border-radius: 8px;
   z-index: 1;
   top: 80px;
+  left: 0;
 }
 
 .category-image {
   position: absolute;
   z-index: 2;
   object-fit: contain;
-  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-.category-card:nth-child(1) .category-image {
-  width: 170px;
-  height: 200px;
+.category-card-headphones .category-image {
+  width: auto;
+  height: 160px;
+  top: 0;
+  max-width: 200px;
 }
 
-.category-card:nth-child(2) .category-image {
-  width: 170px;
-  height: 200px;
+.category-card-speakers .category-image {
+  width: auto;
+  height: 146px;
+  top: 14px;
+  max-width: 200px;
 }
 
-.category-card:nth-child(3) .category-image {
-  width: 170px;
-  height: 200px;
+.category-card-earphones .category-image {
+  width: auto;
+  height: 133px;
+  top: 27px;
+  max-width: 200px;
 }
-
 
 .category-title {
   position: absolute;
-  height: 25px;
+  z-index: 3;
+  top: 196px !important; 
+  left: 50%;
+  transform: translateX(-50%);
   font-family: Manrope, sans-serif;
   font-weight: 700;
   font-size: 18px;
@@ -74,36 +91,24 @@
   text-align: center;
   text-transform: uppercase;
   color: #000000;
-  z-index: 3;
-  top: 196px;
-}
-
-.category-card:nth-child(1) .category-title {
-  width: 133px;
-}
-
-.category-card:nth-child(2) .category-title {
-  width: 101px;
-}
-
-.category-card:nth-child(3) .category-title {
-  width: 118px;
+  margin: 0;
+  white-space: nowrap;
 }
 
 .category-cta {
   position: absolute;
+  z-index: 3;
+  top: 237px !important; 
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   align-items: center;
   gap: 13px;
   text-decoration: none;
-  z-index: 3;
   transition: all 0.3s ease;
-  top: 237px;
 }
 
 .cta-text {
-  width: 39px;
-  height: 18px;
   font-family: Manrope, sans-serif;
   font-weight: 700;
   font-size: 13px;
@@ -112,7 +117,7 @@
   text-transform: uppercase;
   color: #000000;
   opacity: 0.5;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease, opacity 0.3s ease;
 }
 
 .category-cta:hover .cta-text {
@@ -123,92 +128,128 @@
 .cta-icon {
   width: 5px;
   height: 10px;
-  display: block;
-  position: relative;
-  top: -2px
+  object-fit: contain;
 }
 
-@media (max-width: 768px) and (min-width: 481px) {
+
+@media (max-width: 1110px) and (min-width: 768px) {
   .category-section {
-    padding: 0 16px;
+    padding: 0 39px;
   }
 
   .category-container {
-    width: 944px;
-    height: 944px;
-    flex-direction: column;
-    gap: 30px;
+    gap: clamp(10px, 2vw, 30px);
   }
 
   .category-card {
-    width: 100%;
-    max-width: 944px;
+    width: clamp(220px, 30vw, 350px);
+    height: clamp(217px, 28vw, 284px);
+    min-height: clamp(217px, 28vw, 284px);
   }
 
   .category-mask {
-    width: 100%;
-    top: 80px;
+    height: clamp(165px, 21vw, 204px);
+    top: clamp(52px, 7vw, 80px);
   }
 
-  .category-shadow {
-    left: 50%;
-    transform: translateX(-50%);
+
+  .category-card-headphones .category-image {
+    height: clamp(125px, 16vw, 160px);
+    max-width: clamp(150px, 20vw, 200px);
+  }
+
+  .category-card-speakers .category-image {
+    height: clamp(115px, 15vw, 146px);
+    top: clamp(10px, 1.5vw, 14px);
+    max-width: clamp(150px, 20vw, 200px);
+  }
+
+  .category-card-earphones .category-image {
+    height: clamp(104px, 13.5vw, 133px);
+    top: clamp(21px, 2.8vw, 27px);
+    max-width: clamp(150px, 20vw, 200px);
+  }
+
+  .category-title {
+    font-size: clamp(15px, 1.8vw, 18px);
+    letter-spacing: clamp(1.07px, 0.13vw, 1.29px);
+    top: clamp(147px, 19.5vw, 196px) !important;
+  }
+
+  .category-cta {
+    top: clamp(180px, 23.8vw, 237px) !important;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 767px) {
   .category-section {
     padding: 0 24px;
-    margin-top: 0;
+    margin: 40px 0;
   }
 
   .category-container {
-    width: 327px;
-    height: 683px;
+    max-width: 327px;
     flex-direction: column;
     gap: 68px;
   }
 
   .category-card {
-    width: 327px;
+    width: 100%;
+    max-width: 327px;
     height: 217px;
+    min-height: 217px;
   }
 
   .category-mask {
-    width: 327px;
     height: 165px;
     top: 52px;
   }
 
-  .category-image {
-    width: auto;
-    height: 104px;
+  .category-card-headphones .category-image,
+  .category-card-speakers .category-image,
+  .category-card-earphones .category-image {
+    height: 140px;
     top: 0;
-  }
-
-  .category-card:nth-child(1) .category-image,
-  .category-card:nth-child(2) .category-image,
-  .category-card:nth-child(3) .category-image {
     width: auto;
-    height: 104px;
-  }
-
-  .category-shadow {
-    width: 94.89px;
-    height: 40px;
-    top: 94px;
-    left: 50%;
-    transform: translateX(-50%);
+    max-width: 180px;
   }
 
   .category-title {
     font-size: 15px;
     letter-spacing: 1.07px;
-    top: 147px;
+    top: 147px !important; 
   }
 
+
   .category-cta {
-    top: 180px;
+    top: 180px !important; 
   }
 }
 
+@media (max-width: 374px) {
+  .category-section {
+    padding: 0 16px;
+  }
+
+  .category-card-headphones .category-image,
+  .category-card-speakers .category-image,
+  .category-card-earphones .category-image {
+    height: 130px;
+    max-width: 170px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .category-section {
+    padding: 0 165px;
+  }
+
+  .category-container {
+    max-width: 1110px;
+  }
+
+  .category-card {
+    width: 350px;
+    height: 284px;
+  }
+}

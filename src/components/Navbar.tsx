@@ -179,7 +179,7 @@ const Navbar: React.FC = () => {
 
           <div className="logo">
             <Link href="/">
-              <img src="/images/audiophile.png" alt="Audiophile" width={143} height={25} />
+              <img src="/Images/audiophile.png" alt="Audiophile" width={143} height={25} />
             </Link>
           </div>
 
@@ -191,7 +191,7 @@ const Navbar: React.FC = () => {
           </div>
 
           <div className="cart-icon" onClick={toggleCart}>
-            <img src="/images/combined-shape.svg" alt="Cart" />
+            <img src="/Images/combined-shape.svg" alt="Cart" />
             {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
           </div>
         </div>
@@ -205,12 +205,11 @@ const Navbar: React.FC = () => {
               <Link href="/Category/headphones" className="menu-category-item" onClick={() => setIsMenuOpen(false)}>
                 <div className="menu-category-card">
                   <div className="menu-category-mask"></div>
-                  <img src="/images/image-removebg-preview(41).png" alt="Headphones" className="menu-category-image" />
-                  <div className="menu-category-shadow"></div>
+                  <img src="/Images/image-headphones.png" alt="Headphones" className="menu-category-image" />
                   <h3 className="menu-category-title">HEADPHONES</h3>
                   <div className="menu-shop-link">
                     <span className="menu-cta-text">SHOP</span>
-                    <img src="/images/path-2.png" alt="" className="menu-cta-icon" />
+                    <img src="/Images/path-2.png" alt="" className="menu-cta-icon" />
                   </div>
                 </div>
               </Link>
@@ -218,12 +217,12 @@ const Navbar: React.FC = () => {
               <Link href="/Category/speakers" className="menu-category-item" onClick={() => setIsMenuOpen(false)}>
                 <div className="menu-category-card">
                   <div className="menu-category-mask"></div>
-                  <img src="/images/image-removebg-preview(38).png" alt="Speakers" className="menu-category-image speakers-image" />
+                  <img src="/Images/images-speakers.png" alt="Speakers" className="menu-category-image speakers-image" />
                   <div className="menu-category-shadow"></div>
                   <h3 className="menu-category-title">SPEAKERS</h3>
                   <div className="menu-shop-link">
                     <span className="menu-cta-text">SHOP</span>
-                    <img src="/images/path-2.png" alt="" className="menu-cta-icon" />
+                    <img src="/Images/path-2.png" alt="" className="menu-cta-icon" />
                   </div>
                 </div>
               </Link>
@@ -231,12 +230,11 @@ const Navbar: React.FC = () => {
               <Link href="/Category/earphones" className="menu-category-item" onClick={() => setIsMenuOpen(false)}>
                 <div className="menu-category-card">
                   <div className="menu-category-mask"></div>
-                  <img src="/images/image-removebg-preview42.png" alt="Earphones" className="menu-category-image earphones-image" />
-                  <div className="menu-category-shadow"></div>
+                  <img src="/Images/image-earphones.png" alt="Earphones" className="menu-category-image earphones-image" />
                   <h3 className="menu-category-title">EARPHONES</h3>
                   <div className="menu-shop-link">
                     <span className="menu-cta-text">SHOP</span>
-                    <img src="/images/path-2.png" alt="" className="menu-cta-icon" />
+                    <img src="/Images/path-2.png" alt="" className="menu-cta-icon" />
                   </div>
                 </div>
               </Link>

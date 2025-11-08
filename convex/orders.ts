@@ -3,7 +3,7 @@ import { v } from "convex/values";
 import { mutation, query } from "./_generated/server";
 import { internal } from "./_generated/api";
 
-// ------------------ Helper Functions ------------------
+// Helper Functions 
 
 // Generate unique order number
 function generateOrderNumber(): string {
@@ -12,7 +12,7 @@ function generateOrderNumber(): string {
   return `ORD-${timestamp}-${random}`;
 }
 
-// ------------------ Mutations ------------------
+// Mutations
 
 export const create = mutation({
   args: {
@@ -43,7 +43,7 @@ export const create = mutation({
   },
   handler: async (ctx, args) => {
     try {
-      // Generate unique order number
+  
       const orderNumber = generateOrderNumber();
 
       // Create order in database
@@ -63,7 +63,6 @@ export const create = mutation({
         createdAt: Date.now(),
       });
 
-      // Schedule email to be sent immediately (runAfter 0 means as soon as possible)
       await ctx.scheduler.runAfter(
         0,
         internal.actions.emails.sendOrderConfirmationEmail,
@@ -80,11 +79,11 @@ export const create = mutation({
         }
       );
 
-      console.log(`✅ Order created: ${orderNumber} (ID: ${orderId})`);
+      console.log(` Order created: ${orderNumber} (ID: ${orderId})`);
 
       return { orderId, orderNumber };
     } catch (error) {
-      console.error("❌ Error creating order:", error);
+      console.error(" Error creating order:", error);
       throw new Error("Failed to create order");
     }
   },
@@ -101,15 +100,15 @@ export const updateStatus = mutation({
         status: args.status,
       });
 
-      console.log(`✅ Order ${args.orderId} status updated to: ${args.status}`);
+      console.log(` Order ${args.orderId} status updated to: ${args.status}`);
     } catch (error) {
-      console.error("❌ Error updating order status:", error);
+      console.error(" Error updating order status:", error);
       throw new Error("Failed to update order status");
     }
   },
 });
 
-// ------------------ Queries ------------------
+// Queries 
 
 export const getByOrderNumber = query({
   args: { orderNumber: v.string() },
@@ -122,7 +121,7 @@ export const getByOrderNumber = query({
 
       return order;
     } catch (error) {
-      console.error("❌ Error fetching order by order number:", error);
+      console.error(" Error fetching order by order number:", error);
       return null;
     }
   },
@@ -140,7 +139,7 @@ export const getByEmail = query({
 
       return orders;
     } catch (error) {
-      console.error("❌ Error fetching orders by email:", error);
+      console.error(" Error fetching orders by email:", error);
       return [];
     }
   },
@@ -156,7 +155,7 @@ export const getAll = query({
 
       return orders;
     } catch (error) {
-      console.error("❌ Error fetching all orders:", error);
+      console.error(" Error fetching all orders:", error);
       return [];
     }
   },
@@ -169,7 +168,7 @@ export const getById = query({
       const order = await ctx.db.get(args.orderId);
       return order;
     } catch (error) {
-      console.error("❌ Error fetching order by ID:", error);
+      console.error(" Error fetching order by ID:", error);
       return null;
     }
   },

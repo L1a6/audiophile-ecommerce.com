@@ -4,7 +4,7 @@ import { internalAction } from "../_generated/server";
 import { v } from "convex/values";
 import nodemailer from "nodemailer";
 
-// ------------------ Interfaces ------------------
+// Interfaces 
 interface OrderItem {
   productId: string;
   name: string;
@@ -33,18 +33,16 @@ interface EmailData {
   shippingAddress: ShippingAddress;
 }
 
-// ------------------ Email Template with Modern Design ------------------
+// Email Template
 function generateEmailTemplate(data: EmailData): string {
   const formatPrice = (price: number) => `$${price.toLocaleString()}`;
-  
-  // Convert relative image paths to absolute URLs
+
   const getAbsoluteImageUrl = (imagePath: string) => {
-    // If already absolute, return as is
+  
     if (imagePath.startsWith('http://') || imagePath.startsWith('https://')) {
       return imagePath;
     }
-    // Otherwise, prepend your domain
-    // Replace 'your-domain.com' with your actual deployed domain
+
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
     return `${baseUrl}${imagePath.startsWith('/') ? '' : '/'}${imagePath}`;
   };
@@ -230,7 +228,7 @@ function generateEmailTemplate(data: EmailData): string {
 }
 
 
-// ------------------ Internal Action for Sending Email ------------------
+// Internal Action for Sending Email 
 export const sendOrderConfirmationEmail = internalAction({
   args: {
     orderNumber: v.string(),
@@ -272,7 +270,7 @@ export const sendOrderConfirmationEmail = internalAction({
       console.log("  Host:", smtpHost);
       console.log("  Port:", smtpPort);
       console.log("  User:", smtpUser);
-      console.log("  Pass:", smtpPass ? "✅ Set" : "❌ Missing");
+      console.log("  Pass:", smtpPass ? " Set" : " Missing");
 
       if (!smtpHost || !smtpPort || !smtpUser || !smtpPass) {
         throw new Error("SMTP credentials not configured in Convex dashboard");
@@ -288,27 +286,27 @@ export const sendOrderConfirmationEmail = internalAction({
         },
       });
 
-      console.log("✅ Transporter created");
+      console.log(" Transporter created");
 
       await transporter.verify();
-      console.log("✅ SMTP connection verified");
+      console.log(" SMTP connection verified");
 
       const html = generateEmailTemplate(args);
-      console.log("✅ Email template generated");
+      console.log(" Email template generated");
 
       const info = await transporter.sendMail({
         from: `Audiophile <${smtpUser}>`,
         to: args.customerEmail,
-        subject: `✅ Order Confirmed - ${args.orderNumber}`,
+        subject: ` Order Confirmed - ${args.orderNumber}`,
         html,
       });
 
-      console.log("✅ Email sent successfully!");
+      console.log(" Email sent successfully!");
       console.log("  Message ID:", info.messageId);
 
       return { success: true, messageId: info.messageId };
     } catch (error: any) {
-      console.error("❌ Error sending email:");
+      console.error(" Error sending email:");
       console.error("  Message:", error.message);
       console.error("  Stack:", error.stack);
       
