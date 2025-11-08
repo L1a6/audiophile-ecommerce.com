@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import "@/styles/headphones.css";
 import CategorySection from "@/components/CategorySection";
@@ -17,12 +16,9 @@ export default function Headphones() {
 
       <section className="hp-container" aria-labelledby="hp-product-1">
         <div className="hp-image">
-          <Image
-            src="/images/Group 3.png"
+          <img
+            src="/images/group-3.png"
             alt="XX99 Mark II"
-            width={540}
-            height={560}
-            priority
           />
         </div>
         <div className="hp-text" id="hp-product-1">
@@ -45,12 +41,9 @@ export default function Headphones() {
 
       <section className="hp-container hp-reverse" aria-labelledby="hp-product-2">
         <div className="hp-image">
-          <Image
-            src="/images/Group 3 (1).png"
+          <img
+            src="/images/group-3-1.png"
             alt="XX99 Mark I"
-            width={540}
-            height={560}
-            priority
           />
         </div>
         <div className="hp-text" id="hp-product-2">
@@ -71,13 +64,9 @@ export default function Headphones() {
 
       <section className="hp-container" aria-labelledby="hp-product-3">
         <div className="hp-image">
-          <Image
+          <img
             src="/images/group-3-2.png"
-            alt="XX59"
-            width={540}
-            height={560}
-            priority
-          />
+            alt="XX59" />
         </div>
         <div className="hp-text" id="hp-product-3">
           <div className="hp-text-inner">

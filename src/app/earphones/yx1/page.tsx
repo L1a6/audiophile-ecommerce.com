@@ -6,7 +6,7 @@ import "@/styles/productdetail.css";
 import CategorySection from "@/components/CategorySection";
 import BestGear from "@/components/BestGear";
 import Footer from "@/components/Footer";
-import Image from "next/image";
+
 
 interface CartItem {
   id: string;
