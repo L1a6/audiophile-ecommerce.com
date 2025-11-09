@@ -1,10 +1,8 @@
-"use client"
-
 import type { Metadata } from 'next';
 import { Manrope } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
+import Footer from '@/components/Footer'; 
 import { Providers } from './providers';
 
 const manrope = Manrope({
@@ -28,66 +26,16 @@ export const metadata: Metadata = {
   ],
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+// Server component layout
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className={`${manrope.variable} font-sans`}>
         <Providers>
-          <Navbar />
+          <Navbar /> {/* This can still be a client component */}
           <main>{children}</main>
-          <Footer />
+          <Footer /> {/* This can still be a client component */}
         </Providers>
-
-        <style jsx global>{`
-          html, body {
-            width: 100%;
-            max-width: 100%;
-            overflow-x: hidden;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-          }
-
-          main, .container, .section, .wrapper {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-          }
-
-          img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-          }
-
-          /* Desktop-specific adjustments */
-          @media (min-width: 1024px) {
-            .container, .section, .wrapper {
-              max-width: 1200px;
-            }
-          }
-
-          /* Mobile-specific adjustments */
-          @media (max-width: 768px) {
-            .container, .section, .wrapper {
-              padding: 0 1rem;
-            }
-          }
-
-          /* Flex wrapper defaults */
-          .parent {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-          }
-        `}</style>
       </body>
     </html>
   );
