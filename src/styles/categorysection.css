@@ -57,23 +57,23 @@
 
 .category-card-headphones .category-image {
   width: auto;
-  height: 167px;
-  top: 0;
-  max-width: 200px;
+  height: 172px;
+  top: 25px;
+  max-width: 210px;
 }
 
 .category-card-speakers .category-image {
   width: auto;
-  height: 160px;
-  top: 14px;
-  max-width: 200px;
+  height: 168px;
+  top: 25px;
+  max-width: 210px;
 }
 
 .category-card-earphones .category-image {
   width: auto;
   height: 160px;
   top: 27px;
-  max-width: 200px;
+  max-width: 210px;
 }
 
 .category-title {

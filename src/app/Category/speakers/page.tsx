@@ -52,7 +52,7 @@ export default function Headphones() {
             <p className="hp-desc">
               Stream high quality sound wirelessly with minimal loss. The ZX7 bookshelf speaker uses high-end audiophile components that represents the top of the line powered speakers for home or studio use.
             </p>
-            <Link href="/product/xx99-mark-i" className="hp-cta">
+            <Link href="/product/xx99-mark-one" className="hp-cta">
               SEE PRODUCT
             </Link>
           </div>
