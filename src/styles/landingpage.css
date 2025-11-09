@@ -342,16 +342,16 @@ body {
   right: 315px;
   top: 50%;
   transform: translateY(-50%);
-  opacity: 0.2021;
+  opacity: 0.421;
   z-index: 1;
 }
 
 .zx9-speaker-image {
-  position: absolute;
-  width: 410.23px;
-  height: 493px;
-  left: 117.49px;
-  top: 96px;
+  position: relative;
+  width: 600px;
+  height: 700px;
+  left: 105.49px;
+  top: 108px;
   z-index: 2;
   object-fit: contain;
 }
@@ -840,13 +840,6 @@ body {
   .earphones-card .category-mask {
     width: 327px;
     top: 52px;
-  }
-
-  .category-shadow {
-    width: 94.89px;
-    height: 14px;
-    left: 116px;
-    filter: blur(8px);
   }
 
   .category-shadow,

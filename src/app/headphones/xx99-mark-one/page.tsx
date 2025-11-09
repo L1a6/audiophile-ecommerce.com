@@ -169,8 +169,8 @@ const ProductDetail: React.FC = () => {
           <div className="related-products">
             <article className="related-product">
               <img src="/Images/group-12-3.png" alt="XX99 Mark II" className="related-product-image" />
-              <h3 className="related-product-title">XX99 MARK I</h3>
-              <Link href="/headphones/xx99-mark-ii">
+              <h3 className="related-product-title">XX99 MARK II</h3>
+              <Link href="/headphones/xx99-mark-two">
                 <button className="related-product-btn">See product</button>
               </Link>
             </article>

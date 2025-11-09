@@ -9,7 +9,6 @@ import CategorySection from '@/components/CategorySection';
 const LandingPage = () => {
   return (
     <div className="landing-page">
-      {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-background"></div>
         <img 
@@ -33,14 +32,11 @@ const LandingPage = () => {
       <CategorySection />
       </section>
 
-      
-
-      {/* ZX9 Speaker Section */}
       <section className="zx9-section">
         <div className="zx9-container">
           <img src="/Images/group-4.png" alt="" className="zx9-pattern" />
           <img 
-            src="/Images/image-removebg-preview38.png" 
+            src="/Images/image-speakers.png" 
             alt="ZX9 Speaker" 
             className="zx9-speaker-image"
           />
@@ -55,7 +51,6 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* ZX7 Speaker Section */}
       <section className="zx7-section">
         <div className="zx7-container">
           <img src="/Images/bitmap2.png" alt="ZX7 Speaker" className="zx7-image" />
@@ -66,7 +61,6 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* YX1 Earphones Section */}
       <section className="yx1-section">
         <div className="yx1-container">
           <img src="/Images/group-12.png" alt="YX1 Earphones" className="yx1-image-left" />
@@ -80,7 +74,6 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* About Section */}
       <section className="about-section">
         <div className="about-container">
           <div className="about-content">

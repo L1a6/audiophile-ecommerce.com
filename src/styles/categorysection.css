@@ -11,7 +11,6 @@
   box-sizing: border-box;
 }
 
-/* DESKTOP CONTAINER */
 .category-container {
   width: 100%;
   max-width: 1110px;
@@ -58,21 +57,21 @@
 
 .category-card-headphones .category-image {
   width: auto;
-  height: 160px;
+  height: 167px;
   top: 0;
   max-width: 200px;
 }
 
 .category-card-speakers .category-image {
   width: auto;
-  height: 146px;
+  height: 160px;
   top: 14px;
   max-width: 200px;
 }
 
 .category-card-earphones .category-image {
   width: auto;
-  height: 133px;
+  height: 160px;
   top: 27px;
   max-width: 200px;
 }
@@ -219,7 +218,6 @@
     letter-spacing: 1.07px;
     top: 147px !important; 
   }
-
 
   .category-cta {
     top: 180px !important; 
