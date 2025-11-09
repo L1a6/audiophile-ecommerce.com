@@ -1,263 +1,247 @@
-:root {
-  --font-manrope: 'Manrope', sans-serif;
-  --color-primary: #D87D4A;
-  --color-primary-hover: #FBAF85;
-  --color-dark: #101010;
-  --color-black: #000000;
-  --color-white: #FFFFFF;
-  --color-grey: #F1F1F1;
-  --color-light-grey: #FAFAFA;
-  --color-very-dark: #0E0E0E;
-  --padding-mobile: 24px;
-  --padding-tablet: 39px;
-  --padding-desktop: 165px;
-  --max-width-mobile: 327px;
-  --max-width-tablet: 689px;
-  --max-width-desktop: 1110px;
-}
-
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
+/* ===== CATEGORY SECTION ===== */
+.category-section {
   width: 100%;
-  min-width: 320px;
-  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 24px;
+  margin-top: 60px;
 }
 
-body {
-  font-family: var(--font-manrope);
+/* ===== CATEGORY CONTAINER ===== */
+.category-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
   width: 100%;
-  min-width: 320px;
-  overflow-x: hidden;
-  background-color: var(--color-white);
-  color: var(--color-black);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  max-width: 1110px;
 }
 
-main {
-  min-height: 100vh;
-  width: 100%;
-  overflow-x: hidden;
-}
-
-section {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
-  padding-left: clamp(24px, 5vw, 165px);
-  padding-right: clamp(24px, 5vw, 165px);
-  box-sizing: border-box;
-}
-
-.container, .product-container {
-  width: 100%;
-  max-width: clamp(327px, 90vw, 1110px);
-  margin: 0 auto;
-  padding: 0 clamp(24px, 3vw, 40px);
-  box-sizing: border-box;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button {
-  font-family: inherit;
+/* ===== CATEGORY CARD ===== */
+.category-card {
+  background: transparent;
+  border-radius: 8px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   cursor: pointer;
-  border: none;
-  background: none;
+  transition: transform 0.3s ease;
+  flex: 1 1 300px;
+  max-width: 350px;
+  min-height: 284px;
+  padding: 20px 10px 40px;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+.category-card:hover {
+  transform: translateY(-5px);
 }
 
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
-*:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-@media (max-width: 767px) {
-  html, body {
-    width: 100%;
-    min-width: 100%;
-    overflow-x: hidden;
-  }
-
-  section {
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-
-  .container, .product-container {
-    max-width: 100%;
-    padding: 0 24px;
-  }
-
-  nav, header {
-    width: 100%;
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1024px) {
-  html {
-    width: 100%;
-    overflow-x: hidden;
-  }
-
-  body {
-    width: 100%;
-    min-width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-
-  main {
-    width: 100%;
-    overflow-x: hidden;
-  }
-
-  section {
-    width: 100%;
-    max-width: 100%;
-    padding-left: clamp(39px, 5vw, 80px);
-    padding-right: clamp(39px, 5vw, 80px);
-    overflow-x: hidden;
-  }
-
-  nav, header {
-    width: 100%;
-    max-width: 100%;
-    padding-left: clamp(39px, 5vw, 80px);
-    padding-right: clamp(39px, 5vw, 80px);
-    overflow: visible;
-  }
-
-  .container, .product-container {
-    width: 100%;
-    max-width: clamp(600px, 85vw, 900px);
-    margin: 0 auto;
-    padding: 0 clamp(20px, 3vw, 40px);
-  }
-
-  img:not(.category-image):not(.cta-icon) {
-    max-width: 100%;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-  }
-
-  h1 {
-    font-size: clamp(32px, 5vw, 56px);
-  }
-
-  h2 {
-    font-size: clamp(28px, 4vw, 40px);
-  }
-
-  h3 {
-    font-size: clamp(20px, 3vw, 32px);
-  }
-
-  h4 {
-    font-size: clamp(18px, 2.5vw, 28px);
-  }
-
-  p {
-    font-size: clamp(14px, 2vw, 16px);
-  }
-}
-
-@media (min-width: 1025px) {
-  html {
-    width: 100%;
-    overflow-x: hidden;
-  }
-
-  body {
-    width: 100%;
-    overflow-x: hidden;
-  }
-
-  main {
-    width: 100%;
-    overflow-x: hidden;
-  }
-
-  section {
-    width: 100%;
-    overflow-x: hidden;
-    padding-left: clamp(80px, 12vw, 165px);
-    padding-right: clamp(80px, 12vw, 165px);
-  }
-
-  .container, .product-container {
-    max-width: 1110px;
-    padding: 0 clamp(40px, 5vw, 80px);
-  }
-}
-
-@media (min-width: 1200px) {
-  section {
-    padding-left: 165px;
-    padding-right: 165px;
-  }
-
-  .container, .product-container {
-    max-width: 1110px;
-    padding: 0;
-  }
-}
-
-nav, header, footer {
+/* ===== MASK (Grey Background) ===== */
+.category-mask {
   width: 100%;
-  overflow-x: hidden;
+  height: 204px;
+  background: #F1F1F1;
+  border-radius: 8px;
+  z-index: 1;
+  position: absolute;
+  top: 80px;
+  left: 0;
 }
 
-* {
-  min-width: 0;
-  min-height: 0;
-}
-
-*:not(.category-card):not(.category-container) {
+/* ===== CATEGORY IMAGES ===== */
+.category-image {
+  position: relative;
+  z-index: 2;
+  object-fit: contain;
+  margin-bottom: 20px;
   max-width: 100%;
 }
 
-[style*="position: absolute"],
-[style*="position: fixed"] {
-  max-width: none;
+/* Individual images with desktop sizes */
+.headphones-img {
+  width: auto;
+  height: 160px;
+}
+
+.speakers-img {
+  width: auto;
+  height: 146px;
+}
+
+.earphones-img {
+  width: auto;
+  height: 133px;
+}
+
+/* ===== TITLE (Product Name) ===== */
+.category-title {
+  font-family: Manrope, sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #000;
+  margin-bottom: 12px;
+  text-align: center;
+  z-index: 3;
+  word-wrap: break-word;
+}
+
+/* ===== CTA BUTTON (Shop + Arrow) ===== */
+.category-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 13px;
+  color: #000;
+  opacity: 0.7;
+  transition: color 0.3s ease, opacity 0.3s ease;
+  z-index: 3;
+  white-space: nowrap;
+}
+
+.category-cta:hover {
+  color: #D87D4A;
+  opacity: 1;
+}
+
+.cta-icon {
+  width: 5px;
+  height: 10px;
+  object-fit: contain;
+}
+
+/* ===== TABLET VIEW (768px - 1023px) ===== */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .category-section {
+    padding: 0 32px;
+    margin-top: 60px;
+  }
+
+  .category-container {
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .category-card {
+    width: 223px;
+    min-height: 217px;
+    padding: 15px 10px 30px;
+  }
+
+  /* Reduced image size for tablet */
+  .headphones-img {
+    height: 110px;
+  }
+
+  .speakers-img {
+    height: 100px;
+  }
+
+  .earphones-img {
+    height: 95px;
+  }
+
+  .category-title {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .category-cta {
+    font-size: 13px;
+  }
+}
+
+/* ===== MOBILE VIEW (Below 768px) ===== */
+@media (max-width: 767px) {
+  .category-section {
+    padding: 0 24px;
+    margin-top: 40px;
+  }
+
+  .category-container {
+    flex-direction: column;
+    gap: 60px;
+    width: 100%;
+  }
+
+  .category-card {
+    width: 100%;
+    max-width: 327px;
+    height: auto;
+  }
+
+  .category-mask {
+    height: 165px;
+    top: 52px;
+  }
+
+  .headphones-img,
+  .speakers-img,
+  .earphones-img {
+    width: auto;
+    height: 140px;
+    margin-bottom: 15px;
+  }
+
+  .category-title {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .category-cta {
+    font-size: 13px;
+  }
+}
+
+/* ===== EXTRA SMALL MOBILE (Below 374px) ===== */
+@media (max-width: 374px) {
+  .category-section {
+    padding: 0 16px;
+  }
+
+  .category-card {
+    width: 100%;
+  }
+
+  .headphones-img,
+  .speakers-img,
+  .earphones-img {
+    height: 130px;
+  }
+}
+
+/* ===== LARGE DESKTOP (Above 1200px) ===== */
+@media (min-width: 1200px) {
+  .category-card {
+    width: 350px;
+    min-height: 284px;
+  }
+
+  .headphones-img {
+    height: 160px;
+  }
+
+  .speakers-img {
+    height: 146px;
+  }
+
+  .earphones-img {
+    height: 133px;
+  }
+
+  .category-title {
+    font-size: 18px;
+  }
+
+  .category-cta {
+    font-size: 13px;
+  }
 }
