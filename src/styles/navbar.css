@@ -735,19 +735,19 @@
 
   .menu-category-image {
     width: auto;
-    height: 200px;
+    height: 140px;
     top: 0;
   }
 
   .menu-category-image.speakers-image {
     width: auto;
-    height: 101px;
+    height: 140px;
     top: 0;
   }
 
   .menu-category-image.earphones-image {
     width: auto;
-    height: 104px;
+    height: 140px;
     top: 0;
   }
 
