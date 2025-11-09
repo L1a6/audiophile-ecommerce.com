@@ -24,7 +24,7 @@
 
 ## Preview
 
-![Preview](./public/images/preview.png)
+![Preview](./public/Images/preview.png)
 
 ---
 
