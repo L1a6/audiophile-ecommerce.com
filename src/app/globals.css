@@ -20,6 +20,7 @@
 
 html {
   scroll-behavior: smooth;
+  width: 100%;
 }
 
 body {
@@ -33,8 +34,21 @@ body {
 
 main {
   min-height: 100vh;
+  width: 100%;
 }
 
+/* Containers */
+.container, .category-container, .product-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Links and Buttons */
 a {
   color: inherit;
   text-decoration: none;
@@ -45,7 +59,8 @@ button {
   cursor: pointer;
 }
 
-img {
+/* Images */
+img, .card img {
   max-width: 100%;
   height: auto;
   display: block;
@@ -79,5 +94,27 @@ img {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .container, .category-container, .product-container {
+    flex-direction: column;
+    padding: 0 12px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .container, .category-container, .product-container {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container, .category-container, .product-container {
+    flex-wrap: nowrap;
+    gap: 24px;
   }
 }
